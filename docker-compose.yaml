@@ -1,0 +1,13 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/shreyasshivalkar/Projects/DigitalCalendar/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: localhost:3000,127.0.0.1:3000,10.0.0.156:3000,100.104.202.19:3000
+      # HOMEPAGE_ALLOWED_HOSTS: 10.0.0.156:3000,100.104.202.19:3000
+    restart: unless-stopped
