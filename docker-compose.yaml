@@ -1,13 +1,40 @@
 services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    ports:
+      - "80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - homepage
+      - mealie
+    restart: unless-stopped
+
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
-    ports:
-      - "3000:3000"
     volumes:
       - /home/shreyasshivalkar/Projects/DigitalCalendar/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: localhost:3000,127.0.0.1:3000,10.0.0.156:3000,100.104.202.19:3000
-      # HOMEPAGE_ALLOWED_HOSTS: 10.0.0.156:3000,100.104.202.19:3000
+      HOMEPAGE_ALLOWED_HOSTS: home.lab,100.104.202.19,mealie.home.lab,localhost:3000,127.0.0.1:3000,10.0.0.156:3000,100.104.202.19:3000
     restart: unless-stopped
+
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    container_name: mealie
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./mealie/mealie-data:/app/data
+    environment:
+      ALLOW_SIGNUP: "true"
+      BASE_URL: "http://100.104.202.19:9000"
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

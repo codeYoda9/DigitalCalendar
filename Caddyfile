@@ -1,0 +1,9 @@
+http://home.lab, http://100.104.202.19 {
+    reverse_proxy homepage:3000 {
+        header_up Host home.lab
+    }
+}
+
+http://mealie.home.lab {
+    reverse_proxy mealie:9000
+}

@@ -1,25 +1,22 @@
----
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/services/
-
-- Obsidian:
-    - Grocery List:
-        widget:
-          type: iframe
-          src: http://10.0.0.156:8081/grocery.html
-          height: 500
 
 - Home:
     - Calendar:
+        href: "http://home.lab"
         widget:
           type: calendar
           view: agenda
-          firstDayInWeek: sunday
+          firstDayInWeek: Monday
           maxEvents: 10
           showTime: true
           timezone: America/Los_Angeles
           integrations:
             - type: ical
               url: "https://calendar.google.com/calendar/ical/d383120f020d8bebebfaaa3942fc9e910e8ede098583d9ffacec26e880a7ddf7%40group.calendar.google.com/private-d5f5f49e3b22cf8e2a0ac996377c1f30/basic.ics"
-              name: Google Calendar
-              color: zinc
+
+- Food:
+    - Mealie:
+        href: "http://100.104.202.19:9000"
+        widget:
+          type: iframe
+          name: mealie
+          src: "http://100.104.202.19:9000/household/mealplan/planner/view"
