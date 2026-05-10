@@ -1,4 +1,70 @@
 services:
+  # Digital Calendar Phase 1 Database
+  db:
+    image: postgres:15-alpine
+    container_name: digital-calendar-db
+    environment:
+      POSTGRES_USER: digitalcalendar
+      POSTGRES_PASSWORD: digitalcalendar
+      POSTGRES_DB: digitalcalendar
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U digitalcalendar"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Digital Calendar Phase 1 Backend API
+  backend:
+    build:
+      context: ./backend
+    container_name: digital-calendar-backend
+    environment:
+      DATABASE_URL: postgresql://digitalcalendar:digitalcalendar@db:5432/digitalcalendar
+      CORS_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost,http://100.104.202.19:3000
+      PORT: "8000"
+      ENV: production
+      # Google Calendar Configuration
+      GOOGLE_CALENDAR_ENABLED: "true"
+      GOOGLE_CALENDAR_ID: "${GOOGLE_CALENDAR_ID:-primary}"  # Your shared calendar ID
+      GOOGLE_CLIENT_ID: "${GOOGLE_CLIENT_ID}"
+      GOOGLE_CLIENT_SECRET: "${GOOGLE_CLIENT_SECRET}"
+      GOOGLE_REDIRECT_URI: "${GOOGLE_REDIRECT_URI:-http://localhost:8000/auth/google/callback}"
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # Digital Calendar Phase 1 Frontend
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: http://100.104.202.19:8000
+    container_name: digital-calendar-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
   caddy:
     image: caddy:2
     container_name: caddy
@@ -11,6 +77,8 @@ services:
     depends_on:
       - homepage
       - mealie
+      - backend
+      - frontend
     restart: unless-stopped
 
   homepage:
@@ -35,6 +103,25 @@ services:
       BASE_URL: "http://100.104.202.19:9000"
     restart: unless-stopped
 
+  alexa-dashboard:
+    build:
+      context: ./services/alexa-dashboard
+    container_name: alexa-dashboard
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./config/alexa-dashboard:/data
+    environment:
+      PORT: "8010"
+      TZ: America/Los_Angeles
+      ALEXA_TIMEZONE: America/Los_Angeles
+      ALEXA_DOMAIN: amazon.com
+      ALEXA_EMAIL: ""
+      ALEXA_PASSWORD: ""
+      ALEXA_OTP_SECRET: ""
+    restart: unless-stopped
+
 volumes:
   caddy_data:
   caddy_config:
+  postgres_data:

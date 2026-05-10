@@ -2,6 +2,15 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/settings/
 
+fullWidth: true
+layout:
+  Food:
+    style: row
+    columns: 1
+  Alexa:
+    style: row
+    columns: 1
+
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey
