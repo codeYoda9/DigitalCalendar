@@ -1,0 +1,1020 @@
+{
+  "generated_at": "2026-05-19T06:47:10+00:00",
+  "item_count": 78,
+  "categories": [
+    {
+      "category": "Beverages",
+      "items": [
+        {
+          "item": "Kesar Strands",
+          "quantity": null,
+          "unit": "",
+          "category": "Beverages",
+          "recipes": [
+            "Kesar Water",
+            "Kesar Water",
+            "Kesar Water"
+          ]
+        },
+        {
+          "item": "Spearmint",
+          "quantity": null,
+          "unit": "",
+          "category": "Beverages",
+          "recipes": [
+            "Spear Mint Tea",
+            "Spear Mint Tea",
+            "Spear Mint Tea",
+            "Spear Mint Tea"
+          ]
+        },
+        {
+          "item": "Water",
+          "quantity": null,
+          "unit": "",
+          "category": "Beverages",
+          "recipes": [
+            "Turmeric lemon garden cress water (k1)",
+            "Amla + Veggie Juice",
+            "Spear Mint Tea",
+            "Turmeric lemon garden cress water (k1)",
+            "Besan Chilla.",
+            "Kesar Water",
+            "Turmeric lemon garden cress water (k1)",
+            "Amla + Veggie Juice",
+            "Spear Mint Tea",
+            "Turmeric lemon garden cress water (k1)",
+            "Kesar Water",
+            "Turmeric lemon garden cress water (k1)",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Amla + Veggie Juice",
+            "Spear Mint Tea",
+            "Turmeric lemon garden cress water (k1)",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kesar Water",
+            "Turmeric lemon garden cress water (k1)",
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Amla + Veggie Juice",
+            "Spear Mint Tea"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Bread",
+      "items": [
+        {
+          "item": "Roti",
+          "quantity": null,
+          "unit": "",
+          "category": "Bread",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti",
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Dairy",
+      "items": [
+        {
+          "item": "Brie Cheese",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette"
+          ]
+        },
+        {
+          "item": "Butter",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette"
+          ]
+        },
+        {
+          "item": "Egg",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette"
+          ]
+        },
+        {
+          "item": "Feta Cheese",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast"
+          ]
+        },
+        {
+          "item": "Low Fat Paneer",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti"
+          ]
+        },
+        {
+          "item": "Plain Greek Yogurt",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Yogurt with Apple & Walnuts",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Nuts and Seeds Trail Mix",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Yogurt with Apple & Walnuts",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Nuts and Seeds Trail Mix",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Yogurt with Apple & Walnuts",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Unsweetened Almond Milk",
+          "quantity": null,
+          "unit": "",
+          "category": "Dairy",
+          "recipes": [
+            "Flaxseed Pudding",
+            "Flaxseed Pudding"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Frozen",
+      "items": [
+        {
+          "item": "Frozen Corn",
+          "quantity": null,
+          "unit": "",
+          "category": "Frozen",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Meat",
+      "items": [
+        {
+          "item": "Chicken Breast",
+          "quantity": null,
+          "unit": "",
+          "category": "Meat",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast"
+          ]
+        },
+        {
+          "item": "Trevally",
+          "quantity": null,
+          "unit": "",
+          "category": "Meat",
+          "recipes": [
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Oils",
+      "items": [
+        {
+          "item": "Apple Cider Vinegar",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt"
+          ]
+        },
+        {
+          "item": "Asafoetida",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Avocado Oil",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Besan Chilla.",
+            "Grilled Cajun Chicken Salad",
+            "Besan Chilla."
+          ]
+        },
+        {
+          "item": "Coconut Oil",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Extra Virgin Olive Oil",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Veggie & paneer Curry with Roti",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Greek Salad with Grilled Chicken Breast",
+            "Veggie & paneer Curry with Roti",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Greek Salad with Grilled Chicken Breast",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Greek Salad with Grilled Chicken Breast",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        },
+        {
+          "item": "Ginger Garlic Paste",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti"
+          ]
+        },
+        {
+          "item": "Ranch Dressing",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad"
+          ]
+        },
+        {
+          "item": "Vegetable Oil",
+          "quantity": null,
+          "unit": "",
+          "category": "Oils",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Pantry",
+      "items": [
+        {
+          "item": "Almonds",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Black Beans",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad"
+          ]
+        },
+        {
+          "item": "Brazil Nuts",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Brown Moth Beans",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti"
+          ]
+        },
+        {
+          "item": "Chickpea Flour",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Besan Chilla.",
+            "Besan Chilla."
+          ]
+        },
+        {
+          "item": "Diced Tomatoes",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Dried Fig",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Ground Flax Seed",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Flaxseed Pudding",
+            "Flaxseed Pudding"
+          ]
+        },
+        {
+          "item": "Honey",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Flaxseed Pudding",
+            "Flaxseed Pudding"
+          ]
+        },
+        {
+          "item": "Kala Chana",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Pitted Dates",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Vegetable Broth",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti"
+          ]
+        },
+        {
+          "item": "Walnuts",
+          "quantity": null,
+          "unit": "",
+          "category": "Pantry",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Yogurt with Apple & Walnuts",
+            "Nuts and Seeds Trail Mix",
+            "Yogurt with Apple & Walnuts",
+            "Nuts and Seeds Trail Mix",
+            "Yogurt with Apple & Walnuts",
+            "Nuts and Seeds Trail Mix"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Produce",
+      "items": [
+        {
+          "item": "Amla",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice"
+          ]
+        },
+        {
+          "item": "Apple",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Yogurt with Apple & Walnuts",
+            "Yogurt with Apple & Walnuts",
+            "Yogurt with Apple & Walnuts"
+          ]
+        },
+        {
+          "item": "Beetroot",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice"
+          ]
+        },
+        {
+          "item": "Carrot",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Amla + Veggie Juice",
+            "Besan Chilla.",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Besan Chilla.",
+            "Amla + Veggie Juice"
+          ]
+        },
+        {
+          "item": "Cherry Tomatoes",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette",
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti",
+            "Tomato & Brie Omelette"
+          ]
+        },
+        {
+          "item": "Cilantro",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Besan Chilla.",
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Besan Chilla.",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        },
+        {
+          "item": "Coriander Leaves",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Amla + Veggie Juice",
+            "Matki Misal and Roti",
+            "Amla + Veggie Juice",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Amla + Veggie Juice",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Amla + Veggie Juice"
+          ]
+        },
+        {
+          "item": "Cucumber",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt"
+          ]
+        },
+        {
+          "item": "Fennel",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti"
+          ]
+        },
+        {
+          "item": "Garlic",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Greek Salad with Grilled Chicken Breast",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        },
+        {
+          "item": "Ginger",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Green Bell Pepper",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Besan Chilla.",
+            "Besan Chilla."
+          ]
+        },
+        {
+          "item": "Green Chili Pepper",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Lemon Juice",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Turmeric lemon garden cress water (k1)",
+            "Matki Misal and Roti",
+            "Amla + Veggie Juice",
+            "Turmeric lemon garden cress water (k1)",
+            "Matki Misal and Roti",
+            "Turmeric lemon garden cress water (k1)",
+            "Amla + Veggie Juice",
+            "Greek Salad with Grilled Chicken Breast",
+            "Turmeric lemon garden cress water (k1)",
+            "Greek Salad with Grilled Chicken Breast",
+            "Turmeric lemon garden cress water (k1)",
+            "Amla + Veggie Juice",
+            "Greek Salad with Grilled Chicken Breast",
+            "Turmeric lemon garden cress water (k1)",
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Turmeric lemon garden cress water (k1)",
+            "Amla + Veggie Juice",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        },
+        {
+          "item": "Lime Juice",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast"
+          ]
+        },
+        {
+          "item": "Mint Leaves",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice",
+            "Amla + Veggie Juice"
+          ]
+        },
+        {
+          "item": "Mixed Greens",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast"
+          ]
+        },
+        {
+          "item": "Parsley",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette",
+            "Veggie & paneer Curry with Roti",
+            "Greek Salad with Grilled Chicken Breast",
+            "Veggie & paneer Curry with Roti",
+            "Greek Salad with Grilled Chicken Breast",
+            "Tomato & Brie Omelette",
+            "Greek Salad with Grilled Chicken Breast",
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        },
+        {
+          "item": "Red Bell Pepper",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad"
+          ]
+        },
+        {
+          "item": "Red Onion",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Besan Chilla.",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Romaine Hearts",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad"
+          ]
+        },
+        {
+          "item": "Shallot",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti"
+          ]
+        },
+        {
+          "item": "Tomato",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Grilled Cajun Chicken Salad",
+            "Matki Misal and Roti",
+            "Grilled Cajun Chicken Salad"
+          ]
+        },
+        {
+          "item": "Yellow Onion",
+          "quantity": null,
+          "unit": "",
+          "category": "Produce",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Spices",
+      "items": [
+        {
+          "item": "Ajwain",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Besan Chilla.",
+            "Besan Chilla."
+          ]
+        },
+        {
+          "item": "Black Pepper",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)"
+          ]
+        },
+        {
+          "item": "Cajun Seasoning",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Grilled Cajun Chicken Salad",
+            "Grilled Cajun Chicken Salad"
+          ]
+        },
+        {
+          "item": "Cinnamon",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Flaxseed Pudding",
+            "Flaxseed Pudding"
+          ]
+        },
+        {
+          "item": "Coriander Powder",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Cumin Seed",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Curry Leaf",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti"
+          ]
+        },
+        {
+          "item": "Curry Powder",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti"
+          ]
+        },
+        {
+          "item": "Garam Masala",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Garden Cress (Halim Seeds)",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)"
+          ]
+        },
+        {
+          "item": "Mustard Seeds",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti"
+          ]
+        },
+        {
+          "item": "Oregano",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast"
+          ]
+        },
+        {
+          "item": "Pumpkin Seeds",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Red Chili Powder",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Matki Misal and Roti",
+            "Matki Misal and Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        },
+        {
+          "item": "Sea Salt",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Besan Chilla.",
+            "Veggie & paneer Curry with Roti",
+            "Veggie & paneer Curry with Roti",
+            "Besan Chilla."
+          ]
+        },
+        {
+          "item": "Sea Salt & Black Pepper",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Tomato & Brie Omelette",
+            "Tomato & Brie Omelette",
+            "Greek Salad with Grilled Chicken Breast",
+            "Greek Salad with Grilled Chicken Breast",
+            "Tomato & Brie Omelette",
+            "Greek Salad with Grilled Chicken Breast",
+            "Grilled Trevally with Lemon Herb Marinade",
+            "Grilled Trevally with Lemon Herb Marinade"
+          ]
+        },
+        {
+          "item": "Sesame Seeds",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt",
+            "Sesame Cucumber Salad with Olive oil and Yogurt"
+          ]
+        },
+        {
+          "item": "Sunflower Seeds",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix",
+            "Nuts and Seeds Trail Mix"
+          ]
+        },
+        {
+          "item": "Turmeric",
+          "quantity": null,
+          "unit": "",
+          "category": "Spices",
+          "recipes": [
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Turmeric lemon garden cress water (k1)",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Turmeric lemon garden cress water (k1)",
+            "Kala Chana (Black Chickpea curry) with Roti",
+            "Turmeric lemon garden cress water (k1)",
+            "Kala Chana (Black Chickpea curry) with Roti"
+          ]
+        }
+      ]
+    }
+  ]
+}

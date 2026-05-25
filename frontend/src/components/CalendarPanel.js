@@ -5,9 +5,9 @@ import usePolledData from '../hooks/usePolledData';
 
 function CalendarPanel() {
   const today = new Date();
-  const { data: eventsData, isOnline, error } = usePolledData(
+  const { data: eventsData, error } = usePolledData(
     () => calendarApi.getEvents(format(today, 'yyyy-MM-dd')),
-    10000 // Poll every 10 seconds
+    60000
   );
 
   const [events, setEvents] = useState([]);
@@ -30,12 +30,6 @@ function CalendarPanel() {
   return (
     <div className="panel calendar-panel">
       <h2 className="panel-header">📅 Today</h2>
-
-      {!isOnline && (
-        <div className="offline-banner">
-          ⚠️ Offline: Showing cached data
-        </div>
-      )}
 
       {error && (
         <div className="error-message">

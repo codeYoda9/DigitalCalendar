@@ -1,0 +1,231 @@
+household: Dipika
+source: workflows/mealplan.28232955.pdf
+dietary_notes:
+  - decrease carbohydrate intake
+  - increase protein consumption
+  - support muscle mass
+  - reduce body fat percentage
+excluded_ingredients: []
+preferred_tags:
+  - pdf-meal-plan
+  - high-protein
+days:
+  - day: Monday
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Tomato & Brie Omelette"]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Matki Misal and Roti"]
+      juice:
+        meal_type: juice
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Amla + Veggie Juice"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Nuts and Seeds Trail Mix"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Grilled Cajun Chicken Salad"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Spear Mint Tea"]
+  - day: Tuesday
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Besan Chilla."]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Matki Misal and Roti"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Yogurt with Apple & Walnuts"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Grilled Cajun Chicken Salad"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Kesar Water"]
+  - day: Wednesday
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Tomato & Brie Omelette"]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Veggie & paneer Curry with Roti"]
+      "side salad":
+        meal_type: "side salad"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Sesame Cucumber Salad with Olive oil and Yogurt"]
+      juice:
+        meal_type: juice
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Amla + Veggie Juice"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Nuts and Seeds Trail Mix"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Greek Salad with Grilled Chicken Breast"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Spear Mint Tea"]
+  - day: Thursday
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Flaxseed Pudding"]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Veggie & paneer Curry with Roti"]
+      "side salad":
+        meal_type: "side salad"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Sesame Cucumber Salad with Olive oil and Yogurt"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Yogurt with Apple & Walnuts"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Greek Salad with Grilled Chicken Breast"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Kesar Water"]
+  - day: Friday
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Tomato & Brie Omelette"]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Kala Chana (Black Chickpea curry) with Roti"]
+      "side salad":
+        meal_type: "side salad"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Sesame Cucumber Salad with Olive oil and Yogurt"]
+      juice:
+        meal_type: juice
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Amla + Veggie Juice"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Nuts and Seeds Trail Mix"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Greek Salad with Grilled Chicken Breast"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Spear Mint Tea"]
+  - day: Saturday
+    notes: Review grocery list and shop groceries.
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Flaxseed Pudding"]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Kala Chana (Black Chickpea curry) with Roti"]
+      "side salad":
+        meal_type: "side salad"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Sesame Cucumber Salad with Olive oil and Yogurt"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Yogurt with Apple & Walnuts"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Grilled Trevally with Lemon Herb Marinade"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Kesar Water"]
+  - day: Sunday
+    slots:
+      "morning drink":
+        meal_type: "morning drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Turmeric lemon garden cress water (k1)"]
+      breakfast:
+        meal_type: breakfast
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Besan Chilla."]
+      lunch:
+        meal_type: lunch
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Kala Chana (Black Chickpea curry) with Roti"]
+      "side salad":
+        meal_type: "side salad"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Sesame Cucumber Salad with Olive oil and Yogurt"]
+      juice:
+        meal_type: juice
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Amla + Veggie Juice"]
+      snack:
+        meal_type: snack
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Nuts and Seeds Trail Mix"]
+      dinner:
+        meal_type: dinner
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Grilled Trevally with Lemon Herb Marinade"]
+      "evening drink":
+        meal_type: "evening drink"
+        tags: [pdf-meal-plan]
+        preferred_meals: ["Spear Mint Tea"]

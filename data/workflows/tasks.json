@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "id": "generate-meal-plan",
+      "label": "Generate meal plan",
+      "done": true
+    },
+    {
+      "id": "review-meal-plan",
+      "label": "Review meal plan",
+      "done": false
+    },
+    {
+      "id": "generate-grocery-list",
+      "label": "Generate grocery list",
+      "done": true
+    },
+    {
+      "id": "review-grocery-list",
+      "label": "Review grocery list",
+      "done": false
+    },
+    {
+      "id": "shop-groceries",
+      "label": "Shop groceries",
+      "done": false
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { format, startOfWeek } from 'date-fns';
 import { mealApi } from '../api';
 import usePolledData from '../hooks/usePolledData';
+import { WORKFLOWS_GENERATE_COMMAND, fetchMealPlan, fetchWorkflowStatus } from '../workflowsData';
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const MEALS = ['breakfast', 'lunch', 'dinner'];
@@ -21,9 +22,11 @@ function MealPanel() {
   });
   const [isSaving, setIsSaving] = useState(false);
 
-  const { data: mealsData, isOnline, error, refetch } = usePolledData(
+  const { data: generatedPlan } = usePolledData(fetchMealPlan, 30000);
+  const { data: workflowStatus } = usePolledData(fetchWorkflowStatus, 30000);
+  const { data: mealsData, error, refetch } = usePolledData(
     () => mealApi.getWeeklyMeals(format(weekStart, 'yyyy-MM-dd')),
-    10000 // Poll every 10 seconds
+    60000
   );
 
   useEffect(() => {
@@ -58,12 +61,6 @@ function MealPanel() {
     <div className="panel meal-panel">
       <h2 className="panel-header">🍽️ Meals</h2>
 
-      {!isOnline && (
-        <div className="offline-banner">
-          ⚠️ Offline: Showing cached data
-        </div>
-      )}
-
       {error && (
         <div className="error-message">
           Error loading meals: {error}
@@ -71,36 +68,69 @@ function MealPanel() {
       )}
 
       <div className="panel-content">
-        <div className="meal-plan-grid">
-          {DAYS.map((day) => (
-            <div key={day} className="meal-day">
-              <div className="meal-day-label">{day.slice(0, 3)}</div>
-              {MEALS.map((mealType) => (
-                <div key={`${day}-${mealType}`}>
-                  <div className="meal-type">{mealType}</div>
-                  <input
-                    type="text"
-                    className="meal-input"
-                    value={mealData[day]?.[mealType] || ''}
-                    onChange={(e) => handleMealChange(day, mealType, e.target.value)}
-                    placeholder={`${mealType}...`}
-                    disabled={isSaving}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        {generatedPlan?.missing ? (
+          <div className="workflows-empty">
+            <strong>Generated meal plan not available.</strong>
+            <span>Run {WORKFLOWS_GENERATE_COMMAND}.</span>
+          </div>
+        ) : (
+          <div className="generated-meal-list">
+            {(generatedPlan?.days || []).map((day) => (
+              <div key={day.day} className="generated-meal-day">
+                <div className="meal-day-label">{day.day}</div>
+                {(day.meals || []).map((meal) => (
+                  <div key={`${day.day}-${meal.slot}`} className={meal.recipe ? 'generated-meal' : 'generated-meal missing'}>
+                    <span className="meal-type">{meal.slot}</span>
+                    <strong>{meal.recipe || 'Missing meal'}</strong>
+                    {meal.warning && <span className="meal-warning">{meal.warning}</span>}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {(workflowStatus?.missing_meals || []).length > 0 && (
+          <div className="workflows-warnings compact">
+            <strong>Missing meals</strong>
+            {(workflowStatus.missing_meals || []).map((meal) => (
+              <div key={meal}>{meal}</div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="panel-footer">
-        <button
-          className="meal-save-btn"
-          onClick={handleSaveMeals}
-          disabled={isSaving}
-        >
-          {isSaving ? 'Saving...' : 'Save Week'}
-        </button>
+        <details className="manual-overrides">
+          <summary>Manual meal overrides</summary>
+          <div className="meal-plan-grid manual-grid">
+            {DAYS.map((day) => (
+              <div key={day} className="meal-day">
+                <div className="meal-day-label">{day.slice(0, 3)}</div>
+                {MEALS.map((mealType) => (
+                  <div key={`${day}-${mealType}`}>
+                    <div className="meal-type">{mealType}</div>
+                    <input
+                      type="text"
+                      className="meal-input"
+                      value={mealData[day]?.[mealType] || ''}
+                      onChange={(e) => handleMealChange(day, mealType, e.target.value)}
+                      placeholder={`${mealType}...`}
+                      disabled={isSaving}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <button
+            className="meal-save-btn"
+            onClick={handleSaveMeals}
+            disabled={isSaving}
+          >
+            {isSaving ? 'Saving...' : 'Save Week'}
+          </button>
+        </details>
       </div>
     </div>
   );

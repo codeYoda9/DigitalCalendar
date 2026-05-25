@@ -1,12 +1,20 @@
 import axios from 'axios';
 
-// API base URL from environment or default
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+function getApiBaseUrl() {
+  if (typeof window === 'undefined') {
+    return process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  }
+
+  const { protocol, hostname } = window.location;
+  return `${protocol}//${hostname}:8000`;
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 // Create axios instance with default config
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 5000,
 });
 
 // Error handling interceptor

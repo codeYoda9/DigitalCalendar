@@ -1,4 +1,4 @@
-# Digital Calendar - Phase 1
+# Digital Calendar
 
 A self-hosted household dashboard for a 15-inch portrait touchscreen. Perfect for mounting on a fridge and accessible via Tailscale network.
 
@@ -12,12 +12,23 @@ A self-hosted household dashboard for a 15-inch portrait touchscreen. Perfect fo
 - **📡 Polling**: Frontend polls backend every 10 seconds
 - **🔒 Tailscale**: Access via Tailscale network only (no public internet exposure)
 
+## Features (Workflows)
+
+- **Household planning workflow**: Diet plan -> meal plan -> grocery list -> shopping reminder -> weekly follow-through
+- **Local editable inputs**: Diet plan and recipe data live in `data/workflows`
+- **Deterministic generation**: No AI parsing, scraping, cloud dependencies, or paid services
+- **Generated artifacts**: Dashboard-readable meal plan, grocery list, and status files live in `frontend/public/generated`
+- **Saturday reminder**: The dashboard shows a shopping reminder every Saturday with a link to the grocery list
+- **Weekly checklist**: Local JSON checklist tracks meal plan, grocery review, and shopping follow-through
+
 ## Architecture
 
 ```
 Raspberry Pi 5 (Display)
   └─ Browser (Kiosk Mode)
-      └─ Frontend (React) - 3000
+      ├─ Main Dashboard (React) - 3000
+      ├─ Calendar Page (React) - 3001
+      └─ Workflows Page (React) - 3002
           └─ Backend API (FastAPI) - 8000
               └─ PostgreSQL - 5432
 ```
@@ -47,6 +58,12 @@ docker compose build
 docker compose up -d
 ```
 
+Generate the Workflows household plan before opening the dashboard:
+
+```bash
+npm run workflows:generate
+```
+
 ### 3. Verify Services
 
 Check that all services are running:
@@ -61,12 +78,16 @@ CONTAINER ID   IMAGE                          PORTS
 abc123...      digital-calendar-db            5432
 def456...      digital-calendar-backend       8000
 ghi789...      digital-calendar-frontend      3000
+jkl012...      digital-calendar-calendar      3001
+mno345...      digital-calendar-workflows     3002
 ```
 
 ### 4. Access Dashboard
 
-- **Local Desktop**: http://localhost:3000
-- **From Raspberry Pi**: Use the Tailscale IP of the NUC, e.g., http://100.x.x.x:3000
+- **Main Dashboard**: http://localhost:3000
+- **Calendar Page**: http://localhost:3001
+- **Workflows Page**: http://localhost:3002
+- **From Raspberry Pi**: Use the Tailscale IP of the NUC, e.g., http://100.x.x.x:3000, http://100.x.x.x:3001, or http://100.x.x.x:3002
 - **API Documentation**: http://localhost:8000/docs (Swagger UI)
 
 ### 5. Check Backend Health
@@ -94,13 +115,67 @@ Create a `.env` file in the project root if you need to override defaults:
 DATABASE_URL=postgresql://digitalcalendar:digitalcalendar@db:5432/digitalcalendar
 
 # Backend
-CORS_ORIGINS=http://localhost:3000,http://localhost:3001,http://100.104.202.19:3000
+CORS_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://100.104.202.19:3000,http://100.104.202.19:3001,http://100.104.202.19:3002
 PORT=8000
 ENV=production
 
 # Frontend
 REACT_APP_API_URL=http://localhost:8000
+REACT_APP_DEFAULT_VIEW=dashboard
 ```
+
+## Workflows Household Planning
+
+Workflows is intentionally not a general-purpose calendar app. It focuses on household execution: meal planning, grocery list generation, Saturday shopping visibility, and weekly task follow-through.
+
+### File Locations
+
+- Diet plan input: `data/workflows/diet-plan.yaml`
+- Recipe input: `data/workflows/recipes.yaml`
+- Weekly task state: `data/workflows/tasks.json`
+- Generated meal plan: `frontend/public/generated/meal-plan.html` and `frontend/public/generated/meal-plan.md`
+- Generated grocery list: `frontend/public/generated/grocery-list.html` and `frontend/public/generated/grocery-list.md`
+- Dashboard status: `frontend/public/generated/workflow-status.json`
+
+### Edit the Diet Plan
+
+Edit `data/workflows/diet-plan.yaml`. Each day supports meal slots such as `breakfast`, `lunch`, and `dinner`, plus optional notes, preferred meals, tags, dietary notes, preferred tags, and excluded ingredients. The parser is deterministic YAML parsing, so malformed YAML is reported in CLI output and `workflow-status.json`.
+
+### Add Recipes
+
+Edit `data/workflows/recipes.yaml`. Each recipe supports `name`, `meal_type` or `meal_types`, `ingredients`, `servings`, `tags`, optional dietary notes, optional prep time, and optional source fields. Ingredients can include `item`, `quantity`, `unit`, and `category`.
+
+Duplicate ingredients with the same unit are combined. Ingredients without quantities or with incompatible units are preserved and reported as warnings.
+
+### Commands
+
+```bash
+npm run workflows:generate      # Generate meal plan, grocery list, HTML/Markdown, and status JSON
+npm run workflows:meal-plan     # Generate only the weekly meal plan
+npm run workflows:grocery-list  # Generate grocery list from the current generated meal plan
+npm run workflows:reset-week    # Reset the weekly Workflows checklist
+npm run workflows:status        # Print current Workflows status
+npm test                     # Run Workflows unit tests
+```
+
+### Dashboard
+
+The React dashboard reads generated Workflows files from `/generated/*.json` and `/generated/*.html`. The main dashboard on port `3000` shows Tasks, Grocery, and Meals. Calendar has its own full-page frontend on port `3001`, and Workflows has its own full-page frontend on port `3002`.
+
+If generated files are missing, the dashboard shows "Not generated yet" and the command to run instead of broken links. On Saturdays it shows "Review grocery list and shop groceries" with the Shop groceries task status and a link to the generated grocery list.
+
+The checklist is static JSON for now. To mark review or shopping tasks done, edit `data/workflows/tasks.json`, then run `npm run workflows:status` to refresh dashboard status.
+
+### Docker Notes
+
+The frontend container mounts `./frontend/public/generated` to `/app/build/generated`, so generated Workflows artifacts persist across frontend container restarts and can be regenerated without rebuilding the image. The frontend static server disables clean URL redirects so generated `.html` artifacts are served directly.
+
+### Known Limitations
+
+- No phone push notifications; `workflow-status.json` includes an extension point for a future local notification hook.
+- No internet recipe scraping, receipt parsing, AI automation, user accounts, voice assistant, or mobile app.
+- Recipe matching is simple and predictable: meal type, tags, preferred meals, and excluded ingredients.
+- Task completion is still file-backed; edit `data/workflows/tasks.json` rather than expecting cloud sync or accounts.
 
 ## API Endpoints
 
@@ -324,7 +399,7 @@ Common issues:
 Phase 1 shows mock events. To integrate Google Calendar API:
 - See TODO comments in `backend/routes_calendar.py`
 - Requires Google Calendar credentials
-- Will be implemented in Phase 2
+- Will be implemented in Workflows
 
 ## Polling Behavior
 
@@ -346,7 +421,7 @@ Data is cached in browser localStorage:
 - If backend is unreachable, cached data is displayed
 - No silent data loss—user is informed of offline status
 
-## Phase 2 Roadmap
+## Workflows Roadmap
 
 - Google Calendar API integration
 - WebSocket support (replace polling)

@@ -1,0 +1,14 @@
+{
+  "name": "digital-calendar",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Self-hosted household dashboard",
+  "scripts": {
+    "workflows:generate": "python3 -m workflows.cli generate",
+    "workflows:meal-plan": "python3 -m workflows.cli meal-plan",
+    "workflows:grocery-list": "python3 -m workflows.cli grocery-list",
+    "workflows:reset-week": "python3 -m workflows.cli reset-week",
+    "workflows:status": "python3 -m workflows.cli status",
+    "test": "python3 -m unittest discover -s tests"
+  }
+}

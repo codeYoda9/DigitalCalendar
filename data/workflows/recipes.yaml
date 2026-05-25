@@ -1,0 +1,331 @@
+recipes:
+  - name: Turmeric lemon garden cress water (k1)
+    source: workflows/mealplan.28232955.pdf
+    meal_type: "morning drink"
+    servings: 1
+    tags: [pdf-meal-plan, drink]
+    ingredients:
+      - item: Turmeric
+        category: Spices
+      - item: Black Pepper
+        category: Spices
+      - item: Water
+        category: Beverages
+      - item: Garden Cress (Halim Seeds)
+        category: Spices
+      - item: Lemon Juice
+        category: Produce
+  - name: Tomato & Brie Omelette
+    source: workflows/mealplan.28232955.pdf
+    meal_type: breakfast
+    servings: 1
+    tags: [pdf-meal-plan, high-protein]
+    ingredients:
+      - item: Butter
+        category: Dairy
+      - item: Egg
+        category: Dairy
+      - item: Parsley
+        category: Produce
+      - item: Sea Salt & Black Pepper
+        category: Spices
+      - item: Brie Cheese
+        category: Dairy
+      - item: Cherry Tomatoes
+        category: Produce
+  - name: Besan Chilla.
+    source: workflows/mealplan.28232955.pdf
+    meal_type: breakfast
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Chickpea Flour
+        category: Pantry
+      - item: Ajwain
+        category: Spices
+      - item: Sea Salt
+        category: Spices
+      - item: Red Onion
+        category: Produce
+      - item: Carrot
+        category: Produce
+      - item: Cilantro
+        category: Produce
+      - item: Green Bell Pepper
+        category: Produce
+      - item: Ginger
+        category: Produce
+      - item: Green Chili Pepper
+        category: Produce
+      - item: Water
+        category: Beverages
+      - item: Avocado Oil
+        category: Oils
+  - name: Flaxseed Pudding
+    source: workflows/mealplan.28232955.pdf
+    meal_type: breakfast
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Ground Flax Seed
+        category: Pantry
+      - item: Unsweetened Almond Milk
+        category: Dairy
+      - item: Honey
+        category: Pantry
+      - item: Cinnamon
+        category: Spices
+  - name: Matki Misal and Roti
+    source: workflows/mealplan.28232955.pdf
+    meal_type: lunch
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Brown Moth Beans
+        category: Pantry
+      - item: Yellow Onion
+        category: Produce
+      - item: Tomato
+        category: Produce
+      - item: Ginger Garlic Paste
+        category: Oils
+      - item: Garam Masala
+        category: Spices
+      - item: Red Chili Powder
+        category: Spices
+      - item: Vegetable Oil
+        category: Oils
+      - item: Mustard Seeds
+        category: Spices
+      - item: Curry Leaf
+        category: Spices
+      - item: Coriander Leaves
+        category: Produce
+      - item: Lemon Juice
+        category: Produce
+      - item: Roti
+        category: Bread
+  - name: Veggie & paneer Curry with Roti
+    source: workflows/mealplan.28232955.pdf
+    meal_type: lunch
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Roti
+        category: Bread
+      - item: Low Fat Paneer
+        category: Dairy
+      - item: Curry Powder
+        category: Spices
+      - item: Extra Virgin Olive Oil
+        category: Oils
+      - item: Shallot
+        category: Produce
+      - item: Fennel
+        category: Produce
+      - item: Cherry Tomatoes
+        category: Produce
+      - item: Sea Salt
+        category: Spices
+      - item: Vegetable Broth
+        category: Pantry
+      - item: Parsley
+        category: Produce
+  - name: Sesame Cucumber Salad with Olive oil and Yogurt
+    source: workflows/mealplan.28232955.pdf
+    meal_type: "side salad"
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Apple Cider Vinegar
+        category: Oils
+      - item: Cucumber
+        category: Produce
+      - item: Sesame Seeds
+        category: Spices
+      - item: Plain Greek Yogurt
+        category: Dairy
+      - item: Extra Virgin Olive Oil
+        category: Oils
+  - name: Kala Chana (Black Chickpea curry) with Roti
+    source: workflows/mealplan.28232955.pdf
+    meal_type: lunch
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Kala Chana
+        category: Pantry
+      - item: Water
+        category: Beverages
+      - item: Coconut Oil
+        category: Oils
+      - item: Cumin Seed
+        category: Spices
+      - item: Red Onion
+        category: Produce
+      - item: Diced Tomatoes
+        category: Pantry
+      - item: Garlic
+        category: Produce
+      - item: Green Chili Pepper
+        category: Produce
+      - item: Ginger
+        category: Produce
+      - item: Red Chili Powder
+        category: Spices
+      - item: Turmeric
+        category: Spices
+      - item: Coriander Powder
+        category: Spices
+      - item: Asafoetida
+        category: Oils
+      - item: Coriander Leaves
+        category: Produce
+      - item: Garam Masala
+        category: Spices
+      - item: Roti
+        category: Bread
+  - name: Amla + Veggie Juice
+    source: workflows/mealplan.28232955.pdf
+    meal_type: juice
+    servings: 1
+    tags: [pdf-meal-plan, drink]
+    ingredients:
+      - item: Amla
+        category: Produce
+      - item: Carrot
+        category: Produce
+      - item: Beetroot
+        category: Produce
+      - item: Coriander Leaves
+        category: Produce
+      - item: Mint Leaves
+        category: Produce
+      - item: Water
+        category: Beverages
+      - item: Lemon Juice
+        category: Produce
+  - name: Nuts and Seeds Trail Mix
+    source: workflows/mealplan.28232955.pdf
+    meal_type: snack
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Almonds
+        category: Pantry
+      - item: Walnuts
+        category: Pantry
+      - item: Sunflower Seeds
+        category: Spices
+      - item: Pumpkin Seeds
+        category: Spices
+      - item: Pitted Dates
+        category: Pantry
+      - item: Dried Fig
+        category: Pantry
+      - item: Brazil Nuts
+        category: Pantry
+      - item: Plain Greek Yogurt
+        category: Dairy
+  - name: Yogurt with Apple & Walnuts
+    source: workflows/mealplan.28232955.pdf
+    meal_type: snack
+    servings: 1
+    tags: [pdf-meal-plan, vegetarian]
+    ingredients:
+      - item: Plain Greek Yogurt
+        category: Dairy
+      - item: Apple
+        category: Produce
+      - item: Walnuts
+        category: Pantry
+  - name: Grilled Cajun Chicken Salad
+    source: workflows/mealplan.28232955.pdf
+    meal_type: dinner
+    servings: 1
+    tags: [pdf-meal-plan, high-protein]
+    ingredients:
+      - item: Chicken Breast
+        category: Meat
+      - item: Avocado Oil
+        category: Oils
+      - item: Cajun Seasoning
+        category: Spices
+      - item: Frozen Corn
+        category: Frozen
+      - item: Black Beans
+        category: Pantry
+      - item: Red Bell Pepper
+        category: Produce
+      - item: Tomato
+        category: Produce
+      - item: Romaine Hearts
+        category: Produce
+      - item: Ranch Dressing
+        category: Oils
+  - name: Greek Salad with Grilled Chicken Breast
+    source: workflows/mealplan.28232955.pdf
+    meal_type: dinner
+    servings: 1
+    tags: [pdf-meal-plan, high-protein]
+    ingredients:
+      - item: Mixed Greens
+        category: Produce
+      - item: Lime Juice
+        category: Produce
+      - item: Sea Salt & Black Pepper
+        category: Spices
+      - item: Chicken Breast
+        category: Meat
+      - item: Oregano
+        category: Spices
+      - item: Garlic
+        category: Produce
+      - item: Feta Cheese
+        category: Dairy
+      - item: Extra Virgin Olive Oil
+        category: Oils
+      - item: Lemon Juice
+        category: Produce
+      - item: Parsley
+        category: Produce
+  - name: Grilled Trevally with Lemon Herb Marinade
+    source: workflows/mealplan.28232955.pdf
+    meal_type: dinner
+    servings: 1
+    tags: [pdf-meal-plan, high-protein]
+    ingredients:
+      - item: Trevally
+        category: Meat
+      - item: Extra Virgin Olive Oil
+        category: Oils
+      - item: Lemon Juice
+        category: Produce
+      - item: Parsley
+        category: Produce
+      - item: Cilantro
+        category: Produce
+      - item: Sea Salt & Black Pepper
+        category: Spices
+      - item: Garlic
+        category: Produce
+  - name: Spear Mint Tea
+    source: workflows/mealplan.28232955.pdf
+    meal_type: "evening drink"
+    servings: 1
+    tags: [pdf-meal-plan, drink]
+    ingredients:
+      - item: Spearmint
+        category: Beverages
+      - item: Water
+        category: Beverages
+  - name: Kesar Water
+    source: workflows/mealplan.28232955.pdf
+    meal_type: "evening drink"
+    servings: 1
+    tags: [pdf-meal-plan, drink]
+    ingredients:
+      - item: Kesar Strands
+        category: Beverages
+      - item: Water
+        category: Beverages

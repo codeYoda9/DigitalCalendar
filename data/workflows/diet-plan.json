@@ -1,0 +1,65 @@
+{
+  "household": "Home",
+  "notes": "Simple editable sample diet plan for Workflows.",
+  "dietary_constraints": ["balanced", "high-protein"],
+  "excluded_ingredients": ["peanuts"],
+  "days": [
+    {
+      "day": "Monday",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["quick"]},
+        "lunch": {"meal_type": "lunch", "tags": ["leftovers"]},
+        "dinner": {"meal_type": "dinner", "tags": ["balanced"], "preferred_meals": ["Sheet Pan Chicken Bowls"]}
+      }
+    },
+    {
+      "day": "Tuesday",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["quick"]},
+        "lunch": {"meal_type": "lunch", "tags": ["vegetarian"]},
+        "dinner": {"meal_type": "dinner", "tags": ["vegetarian"]}
+      }
+    },
+    {
+      "day": "Wednesday",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["quick"]},
+        "lunch": {"meal_type": "lunch", "tags": ["leftovers"]},
+        "dinner": {"meal_type": "dinner", "tags": ["balanced"]}
+      }
+    },
+    {
+      "day": "Thursday",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["quick"]},
+        "lunch": {"meal_type": "lunch", "tags": ["vegetarian"]},
+        "dinner": {"meal_type": "dinner", "tags": ["slow-cooker"]}
+      }
+    },
+    {
+      "day": "Friday",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["quick"]},
+        "lunch": {"meal_type": "lunch", "tags": ["leftovers"]},
+        "dinner": {"meal_type": "dinner", "tags": ["family"]}
+      }
+    },
+    {
+      "day": "Saturday",
+      "notes": "Review groceries and shop today.",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["weekend"]},
+        "lunch": {"meal_type": "lunch", "tags": ["quick"]},
+        "dinner": {"meal_type": "dinner", "tags": ["family"]}
+      }
+    },
+    {
+      "day": "Sunday",
+      "slots": {
+        "breakfast": {"meal_type": "breakfast", "tags": ["weekend"]},
+        "lunch": {"meal_type": "lunch", "tags": ["vegetarian"]},
+        "dinner": {"meal_type": "dinner", "tags": ["prep"]}
+      }
+    }
+  ]
+}

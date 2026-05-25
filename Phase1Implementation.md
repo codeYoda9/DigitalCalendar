@@ -159,7 +159,7 @@ Code quality:
 - Add basic validation.
 - Add basic error handling.
 - Do not add unnecessary frameworks.
-- Do not build Phase 2 features.
+- Do not build Workflows features.
 
 Deliverables:
 - Working Docker Compose project.

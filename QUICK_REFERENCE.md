@@ -14,8 +14,10 @@ docker compose up -d
 docker compose ps
 
 # Access dashboard
-# Local: http://localhost:3000
-# Raspberry Pi: http://[NUC_TAILSCALE_IP]:3000
+# Main dashboard: http://localhost:3000
+# Calendar page: http://localhost:3001
+# Workflows page: http://localhost:3002
+# Raspberry Pi: http://[NUC_TAILSCALE_IP]:3000, :3001, or :3002
 # API Docs: http://localhost:8000/docs
 ```
 
@@ -98,7 +100,9 @@ docker-compose.yaml → Orchestration
 
 | Service | URL |
 |---------|-----|
-| Frontend | http://localhost:3000 |
+| Main Dashboard | http://localhost:3000 |
+| Calendar Page | http://localhost:3001 |
+| Workflows Page | http://localhost:3002 |
 | Backend API | http://localhost:8000 |
 | API Docs | http://localhost:8000/docs |
 | Database | localhost:5432 |
@@ -134,8 +138,10 @@ Change port in `docker-compose.yaml`
 1. Build and start: `docker compose build && docker compose up -d`
 2. Verify services: `docker compose ps`
 3. Access dashboard: http://localhost:3000
-4. Check API docs: http://localhost:8000/docs
-5. For Raspberry Pi: Configure Kiosk mode (see README.md)
+4. Access Calendar page: http://localhost:3001
+5. Access Workflows page: http://localhost:3002
+6. Check API docs: http://localhost:8000/docs
+7. For Raspberry Pi: Configure Kiosk mode (see README.md)
 
 ---
 

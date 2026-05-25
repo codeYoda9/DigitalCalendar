@@ -74,7 +74,7 @@ DigitalCalendar/
 - `routes_tasks.py`: CRUD operations for tasks
 - `routes_groceries.py`: CRUD operations for grocery items
 - `routes_meals.py`: Weekly meal plan retrieval and update
-- `routes_calendar.py`: Calendar events (mock in Phase 1, TODO comments for Phase 2)
+- `routes_calendar.py`: Calendar events (mock in Phase 1, TODO comments for Workflows)
 
 ## Frontend Architecture
 
@@ -302,7 +302,7 @@ docker compose down -v
 - CSS optimized for Chromium (Raspberry Pi browser)
 - Minimal dependencies (react, react-dom, axios, date-fns)
 
-## TODO: Phase 2 Features
+## TODO: Workflows Features
 
 ### Calendar Integration
 In `backend/routes_calendar.py`:

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Greek Yogurt Berry Bowl",
+    "meal_types": ["breakfast"],
+    "servings": 2,
+    "tags": ["quick", "high-protein"],
+    "prep_time_minutes": 5,
+    "ingredients": [
+      {"item": "Greek yogurt", "quantity": 4, "unit": "cups", "category": "Dairy"},
+      {"item": "Mixed berries", "quantity": 2, "unit": "cups", "category": "Produce"},
+      {"item": "Granola", "quantity": 1, "unit": "cup", "category": "Pantry"}
+    ]
+  },
+  {
+    "name": "Weekend Veggie Omelet",
+    "meal_types": ["breakfast"],
+    "servings": 2,
+    "tags": ["weekend", "high-protein"],
+    "prep_time_minutes": 20,
+    "ingredients": [
+      {"item": "Eggs", "quantity": 6, "unit": "each", "category": "Dairy"},
+      {"item": "Spinach", "quantity": 2, "unit": "cups", "category": "Produce"},
+      {"item": "Cheddar", "quantity": 1, "unit": "cup", "category": "Dairy"}
+    ]
+  },
+  {
+    "name": "Sheet Pan Chicken Bowls",
+    "meal_types": ["dinner", "lunch"],
+    "servings": 4,
+    "tags": ["balanced", "leftovers", "family"],
+    "prep_time_minutes": 40,
+    "ingredients": [
+      {"item": "Chicken breast", "quantity": 2, "unit": "lb", "category": "Meat"},
+      {"item": "Broccoli", "quantity": 3, "unit": "cups", "category": "Produce"},
+      {"item": "Sweet potato", "quantity": 3, "unit": "each", "category": "Produce"},
+      {"item": "Rice", "quantity": 2, "unit": "cups", "category": "Pantry"}
+    ]
+  },
+  {
+    "name": "Chickpea Quinoa Salad",
+    "meal_types": ["lunch", "dinner"],
+    "servings": 4,
+    "tags": ["vegetarian", "quick", "balanced"],
+    "prep_time_minutes": 25,
+    "ingredients": [
+      {"item": "Chickpeas", "quantity": 2, "unit": "cans", "category": "Pantry"},
+      {"item": "Quinoa", "quantity": 2, "unit": "cups", "category": "Pantry"},
+      {"item": "Cucumber", "quantity": 1, "unit": "each", "category": "Produce"},
+      {"item": "Feta", "quantity": 1, "unit": "cup", "category": "Dairy"}
+    ]
+  },
+  {
+    "name": "Slow Cooker Turkey Chili",
+    "meal_types": ["dinner"],
+    "servings": 6,
+    "tags": ["slow-cooker", "prep", "family"],
+    "prep_time_minutes": 30,
+    "ingredients": [
+      {"item": "Ground turkey", "quantity": 2, "unit": "lb", "category": "Meat"},
+      {"item": "Black beans", "quantity": 2, "unit": "cans", "category": "Pantry"},
+      {"item": "Diced tomatoes", "quantity": 2, "unit": "cans", "category": "Pantry"},
+      {"item": "Onion", "quantity": 1, "unit": "each", "category": "Produce"}
+    ]
+  }
+]

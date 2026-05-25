@@ -1,0 +1,557 @@
+{
+  "generated_at": "2026-05-19T06:47:10+00:00",
+  "days": [
+    {
+      "day": "Monday",
+      "notes": "",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Tomato & Brie Omelette",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Matki Misal and Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "juice",
+          "recipe": "Amla + Veggie Juice",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Nuts and Seeds Trail Mix",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Grilled Cajun Chicken Salad",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Spear Mint Tea",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "notes": "",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Besan Chilla.",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Matki Misal and Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Yogurt with Apple & Walnuts",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Grilled Cajun Chicken Salad",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Kesar Water",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "notes": "",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Tomato & Brie Omelette",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Veggie & paneer Curry with Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "side salad",
+          "recipe": "Sesame Cucumber Salad with Olive oil and Yogurt",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "juice",
+          "recipe": "Amla + Veggie Juice",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Nuts and Seeds Trail Mix",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Greek Salad with Grilled Chicken Breast",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Spear Mint Tea",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "notes": "",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Flaxseed Pudding",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Veggie & paneer Curry with Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "side salad",
+          "recipe": "Sesame Cucumber Salad with Olive oil and Yogurt",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Yogurt with Apple & Walnuts",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Greek Salad with Grilled Chicken Breast",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Kesar Water",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "notes": "",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Tomato & Brie Omelette",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Kala Chana (Black Chickpea curry) with Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "side salad",
+          "recipe": "Sesame Cucumber Salad with Olive oil and Yogurt",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "juice",
+          "recipe": "Amla + Veggie Juice",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Nuts and Seeds Trail Mix",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Greek Salad with Grilled Chicken Breast",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Spear Mint Tea",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "notes": "Review grocery list and shop groceries.",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Flaxseed Pudding",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Kala Chana (Black Chickpea curry) with Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "side salad",
+          "recipe": "Sesame Cucumber Salad with Olive oil and Yogurt",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Yogurt with Apple & Walnuts",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Grilled Trevally with Lemon Herb Marinade",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Kesar Water",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    },
+    {
+      "day": "Sunday",
+      "notes": "",
+      "meals": [
+        {
+          "slot": "morning drink",
+          "recipe": "Turmeric lemon garden cress water (k1)",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "breakfast",
+          "recipe": "Besan Chilla.",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "lunch",
+          "recipe": "Kala Chana (Black Chickpea curry) with Roti",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "side salad",
+          "recipe": "Sesame Cucumber Salad with Olive oil and Yogurt",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "juice",
+          "recipe": "Amla + Veggie Juice",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "snack",
+          "recipe": "Nuts and Seeds Trail Mix",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "vegetarian"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "dinner",
+          "recipe": "Grilled Trevally with Lemon Herb Marinade",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "high-protein"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        },
+        {
+          "slot": "evening drink",
+          "recipe": "Spear Mint Tea",
+          "servings": 1,
+          "tags": [
+            "pdf-meal-plan",
+            "drink"
+          ],
+          "source": "workflows/mealplan.28232955.pdf"
+        }
+      ]
+    }
+  ]
+}

@@ -21,6 +21,24 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
+.page-shell {
+  height: 100vh;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.single-panel-page .panel {
+  min-height: calc(100vh - 2rem);
+}
+
+.single-panel-page .workflows-panel {
+  overflow-y: auto;
+}
+
+.single-panel-page .workflows-summary-grid {
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+}
+
 /* Main dashboard container */
 .dashboard {
   display: grid;
@@ -29,7 +47,22 @@ body {
   gap: 1rem;
   padding: 1rem;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
+}
+
+.dashboard .meal-panel {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.dashboard .grocery-panel {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dashboard .tasks-panel {
+  grid-column: 2;
+  grid-row: 2;
 }
 
 /* Panel styles - Touch-first, large text and buttons */
@@ -185,6 +218,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.empty-message.small {
+  font-size: 1rem;
+  padding: 1rem 0;
 }
 
 /* Input and button styles - Large for touch */
@@ -359,6 +397,201 @@ body {
   background: #4556c0;
 }
 
+.generated-meal-list,
+.generated-grocery-list,
+.workflows-task-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.generated-meal-day,
+.grocery-category {
+  background: #f7f8fc;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.generated-meal {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.45rem 0;
+}
+
+.generated-meal.missing {
+  color: #9f1f1f;
+}
+
+.meal-warning {
+  font-size: 0.9rem;
+  color: #9f1f1f;
+}
+
+.generated-grocery-summary {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.05rem;
+}
+
+.generated-grocery-summary a {
+  color: #4556c0;
+  font-weight: 700;
+}
+
+.grocery-category-title {
+  color: #667eea;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.generated-grocery-item,
+.generated-more {
+  font-size: 1rem;
+  padding: 0.2rem 0;
+}
+
+.generated-more {
+  color: #666;
+}
+
+.workflows-empty {
+  align-items: center;
+  background: #fff3cd;
+  border-left: 4px solid #f9a825;
+  border-radius: 8px;
+  color: #5f4200;
+  display: grid;
+  gap: 0.25rem;
+  justify-items: start;
+  padding: 1rem;
+}
+
+.manual-overrides {
+  border-top: 1px solid #eee;
+  padding-top: 0.75rem;
+}
+
+.manual-overrides summary {
+  color: #666;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.manual-grid {
+  margin-bottom: 0.75rem;
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+/* Workflows household planning panel */
+.workflows-panel {
+  gap: 0.8rem;
+}
+
+.shopping-reminder {
+  background: #fff3cd;
+  border-left: 4px solid #f9a825;
+  border-radius: 8px;
+  color: #5f4200;
+  font-size: 1.05rem;
+  padding: 0.9rem;
+}
+
+.shopping-reminder.prominent {
+  border-left-color: #ef6c00;
+  font-size: 1.12rem;
+}
+
+.shopping-reminder a,
+.workflows-links a {
+  color: #4556c0;
+  font-weight: 700;
+}
+
+.workflows-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.workflows-summary-item {
+  background: #f7f8fc;
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.summary-label {
+  color: #666;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.workflows-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1.05rem;
+}
+
+.workflows-links span {
+  color: #666;
+}
+
+.workflows-checklist {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.workflows-task {
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  color: #333;
+  display: flex;
+  font-size: 1rem;
+  gap: 0.6rem;
+  padding: 0.55rem 0.7rem;
+}
+
+.workflows-task.done {
+  background: #e8f5e9;
+  color: #4c7a4f;
+}
+
+.workflows-task-box {
+  align-items: center;
+  border: 2px solid #667eea;
+  border-radius: 4px;
+  display: inline-flex;
+  height: 1.35rem;
+  justify-content: center;
+  min-width: 1.35rem;
+}
+
+.workflows-warnings {
+  background: #ffebee;
+  border-left: 4px solid #c62828;
+  border-radius: 8px;
+  color: #9f1f1f;
+  display: grid;
+  font-size: 0.95rem;
+  gap: 0.35rem;
+  padding: 0.8rem;
+}
+
+.workflows-warnings.compact {
+  margin-top: 0.75rem;
+}
+
+.workflows-task-row {
+  margin-bottom: 0;
+}
+
 /* Responsive design for different screen sizes */
 @media (max-width: 1024px) {
   .dashboard {
@@ -374,6 +607,13 @@ body {
 
   .panel-header {
     font-size: 1.5rem;
+  }
+
+  .dashboard .meal-panel,
+  .dashboard .grocery-panel,
+  .dashboard .tasks-panel {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 
