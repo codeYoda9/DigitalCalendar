@@ -193,11 +193,9 @@ class WorkflowsWorkflowTests(unittest.TestCase):
             "meal-plan.json",
             "meal-plan.md",
             "meal-plan.html",
-            "meal-plan/index.html",
             "grocery-list.json",
             "grocery-list.md",
             "grocery-list.html",
-            "grocery-list/index.html",
             "workflow-status.json",
         ]
         for filename in expected:

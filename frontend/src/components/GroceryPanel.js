@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { groceryApi } from '../api';
 import usePolledData from '../hooks/usePolledData';
 import {
@@ -10,21 +10,11 @@ import {
 
 function GroceryPanel() {
   const [newItem, setNewItem] = useState('');
-  const [groceries, setGroceries] = useState([]);
   const [isAdding, setIsAdding] = useState(false);
 
   const { data: generatedGroceries } = usePolledData(fetchGroceryList, 30000);
   const { data: workflowStatus } = usePolledData(fetchWorkflowStatus, 30000);
-  const { data: groceriesData, error, refetch } = usePolledData(
-    () => groceryApi.getGroceries(),
-    60000
-  );
-
-  useEffect(() => {
-    if (groceriesData?.data) {
-      setGroceries(groceriesData.data);
-    }
-  }, [groceriesData]);
+  const { data: groceriesData, error, refetch } = usePolledData(groceryApi.getGroceries, 60000, 'groceries');
 
   const handleAddItem = async (e) => {
     e.preventDefault();
@@ -60,6 +50,7 @@ function GroceryPanel() {
     }
   };
 
+  const groceries = Array.isArray(groceriesData) ? groceriesData : [];
   const uncheckedItems = groceries.filter((item) => !item.checked);
   const checkedItems = groceries.filter((item) => item.checked);
   const groceryHref = workflowStatus?.grocery_list_generated ? workflowStatus?.artifacts?.grocery_list_html : null;

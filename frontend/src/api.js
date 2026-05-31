@@ -64,18 +64,4 @@ export const mealApi = {
   },
 };
 
-// Calendar API
-export const calendarApi = {
-  getEvents: (date = null) => {
-    const params = {};
-    if (date) params.date_param = date;
-    return api.get('/api/calendar/events', { params });
-  },
-};
-
-// Health check
-export const healthApi = {
-  check: () => api.get('/health'),
-};
-
 export default api;

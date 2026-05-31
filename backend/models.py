@@ -1,6 +1,6 @@
 """SQLAlchemy models for database tables."""
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, Date, JSON
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, Date
 from database import Base
 
 
@@ -37,15 +37,3 @@ class Meal(Base):
     lunch = Column(String(255))
     dinner = Column(String(255))
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
-
-class AuditLog(Base):
-    """Audit log model for tracking changes."""
-    __tablename__ = "audit_log"
-
-    id = Column(Integer, primary_key=True, index=True)
-    entity_type = Column(String(50), nullable=False)
-    entity_id = Column(Integer)
-    action = Column(String(50), nullable=False)
-    payload_json = Column(JSON)
-    created_at = Column(DateTime, default=datetime.utcnow, index=True)

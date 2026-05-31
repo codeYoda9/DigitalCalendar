@@ -14,7 +14,6 @@ DigitalCalendar/
 │   ├── routes_tasks.py         # Task endpoints
 │   ├── routes_groceries.py     # Grocery endpoints
 │   ├── routes_meals.py         # Meal endpoints
-│   ├── routes_calendar.py      # Calendar endpoints (mock, TODO: Google API)
 │   ├── requirements.txt        # Python dependencies
 │   ├── Dockerfile              # Backend container config
 │   └── .dockerignore
@@ -25,12 +24,11 @@ DigitalCalendar/
 │   ├── src/
 │   │   ├── index.js            # React entry point
 │   │   ├── index.css           # Global styles (touch-first, large text)
-│   │   ├── App.js              # Main dashboard component (4-panel layout)
+│   │   ├── App.js              # Main dashboard component
 │   │   ├── api.js              # Backend API client
 │   │   ├── hooks/
 │   │   │   └── usePolledData.js # Custom hook for 10s polling
 │   │   └── components/
-│   │       ├── CalendarPanel.js # Today/Calendar panel
 │   │       ├── TasksPanel.js    # Tasks todo list
 │   │       ├── GroceryPanel.js  # Shopping list
 │   │       └── MealPanel.js     # Weekly meal plan
@@ -62,7 +60,6 @@ DigitalCalendar/
 - `Task`: id, text, done, created_at, updated_at
 - `Grocery`: id, item, checked, created_at, updated_at
 - `Meal`: id, week_start_date, day_of_week, breakfast, lunch, dinner, updated_at
-- `AuditLog`: id, entity_type, entity_id, action, payload_json, created_at
 
 ### Request/Response Schemas (`backend/schemas.py`)
 - Pydantic models for validation
@@ -74,18 +71,17 @@ DigitalCalendar/
 - `routes_tasks.py`: CRUD operations for tasks
 - `routes_groceries.py`: CRUD operations for grocery items
 - `routes_meals.py`: Weekly meal plan retrieval and update
-- `routes_calendar.py`: Calendar events (mock in Phase 1, TODO comments for Workflows)
 
 ## Frontend Architecture
 
-### 4-Panel Dashboard Layout
+### Dashboard Layout
 ```
 ┌─────────────────────────────────────┐
-│   📅 TODAY / CALENDAR  │  ✓ TASKS   │
-│   - Date and day      │  - Active   │
-│   - Events list       │  - Add task │
+│  🍽️ MEALS             │  🛒 GROCERY │
+│  - Generated plan     │  - Generated│
+│  - Manual overrides   │  - Overrides│
 ├────────────────────────┼────────────┤
-│  🛒 GROCERY            │  🍽️ MEALS  │
+│  ✓ TASKS              │  WORKFLOWS  │
 │  - Items list         │  - Weekly   │
 │  - Checked section    │    grid     │
 │  - Add item           │  - Editable │
@@ -111,13 +107,6 @@ Responsive design:
 - **Error Handling**: Graceful degradation
 
 ### Components
-
-#### CalendarPanel (`frontend/src/components/CalendarPanel.js`)
-- Displays today's date in large format
-- Shows day of week
-- Lists upcoming events
-- Filters events to current date onwards
-- Shows offline/error banners
 
 #### TasksPanel (`frontend/src/components/TasksPanel.js`)
 - Two sections: Active & Completed
@@ -162,12 +151,6 @@ DELETE /api/groceries/{id}    - Delete item
 ```
 GET  /api/meals/week    - Get week plan (optional: ?date_param=2024-01-01)
 PUT  /api/meals/week    - Update week plan (body: {Monday: {...}, ...})
-```
-
-### Calendar
-```
-GET  /api/calendar/events  - Get events (optional: ?date_param=2024-01-01)
-     Returns: {events: [...], date: string}
 ```
 
 ### Health
@@ -304,19 +287,6 @@ docker compose down -v
 
 ## TODO: Workflows Features
 
-### Calendar Integration
-In `backend/routes_calendar.py`:
-```python
-# TODO: Integrate Google Calendar API
-# - Add GOOGLE_CALENDAR_CREDENTIALS environment variable
-# - Use google-auth and google-auth-oauthlib libraries
-# - Implement OAuth flow for initial setup
-# - Cache tokens in secure storage
-# - Fetch real events from Google Calendar API
-# - Handle timezone conversion
-# - Fall back to mock events if credentials not configured
-```
-
 ### WebSocket Support
 - Replace polling with bidirectional updates
 - Reduce server load
@@ -343,7 +313,6 @@ In `backend/routes_calendar.py`:
 - [ ] Mark grocery checked → moved to checked section
 - [ ] Delete grocery → removed from list
 - [ ] Edit meal plan → saved and persisted
-- [ ] Navigate between dates (calendar)
 - [ ] Offline mode shows banner
 - [ ] Data cached in localStorage
 

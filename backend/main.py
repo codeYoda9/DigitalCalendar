@@ -13,7 +13,6 @@ from database import engine, get_db
 import routes_tasks
 import routes_groceries
 import routes_meals
-import routes_calendar
 import schemas
 
 # Setup logging
@@ -41,7 +40,7 @@ app = FastAPI(
 )
 
 # CORS middleware for frontend access
-allowed_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:3001").split(",")
+allowed_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:3002").split(",")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
@@ -54,7 +53,6 @@ app.add_middleware(
 app.include_router(routes_tasks.router)
 app.include_router(routes_groceries.router)
 app.include_router(routes_meals.router)
-app.include_router(routes_calendar.router)
 
 
 @app.get("/health", response_model=schemas.HealthResponse)

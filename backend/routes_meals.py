@@ -1,6 +1,6 @@
 """Meal planning API routes."""
 from datetime import datetime, timedelta, date
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
 import models

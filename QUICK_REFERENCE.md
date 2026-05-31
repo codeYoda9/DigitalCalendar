@@ -15,9 +15,8 @@ docker compose ps
 
 # Access dashboard
 # Main dashboard: http://localhost:3000
-# Calendar page: http://localhost:3001
 # Workflows page: http://localhost:3002
-# Raspberry Pi: http://[NUC_TAILSCALE_IP]:3000, :3001, or :3002
+# Raspberry Pi: http://[NUC_TAILSCALE_IP]:3000 or :3002
 # API Docs: http://localhost:8000/docs
 ```
 
@@ -58,7 +57,6 @@ npm start
 | `/api/tasks` | POST | Create task |
 | `/api/groceries` | GET | List groceries |
 | `/api/meals/week` | GET | Get meal plan |
-| `/api/calendar/events` | GET | Get events |
 | `/health` | GET | Health check |
 | `/docs` | GET | Swagger UI |
 
@@ -83,7 +81,6 @@ docker-compose.yaml → Orchestration
 - ✅ Shared tasks todo list
 - ✅ Shared grocery shopping list
 - ✅ Weekly meal planning
-- ✅ **Google Calendar integration** (see GOOGLE_CALENDAR_SETUP.md)
 - ✅ 10-second polling
 - ✅ Offline support with caching
 - ✅ Tailscale network access
@@ -101,7 +98,6 @@ docker-compose.yaml → Orchestration
 | Service | URL |
 |---------|-----|
 | Main Dashboard | http://localhost:3000 |
-| Calendar Page | http://localhost:3001 |
 | Workflows Page | http://localhost:3002 |
 | Backend API | http://localhost:8000 |
 | API Docs | http://localhost:8000/docs |
@@ -130,7 +126,6 @@ Change port in `docker-compose.yaml`
 - `README.md` - Main documentation
 - `DEVELOPMENT.md` - Developer guide
 - `Phase1Implementation.md` - Original specification
-- `GOOGLE_CALENDAR_SETUP.md` - **Google Calendar integration guide**
 - `QUICK_REFERENCE.md` - This file
 
 ## 🎮 Next Steps
@@ -138,10 +133,9 @@ Change port in `docker-compose.yaml`
 1. Build and start: `docker compose build && docker compose up -d`
 2. Verify services: `docker compose ps`
 3. Access dashboard: http://localhost:3000
-4. Access Calendar page: http://localhost:3001
-5. Access Workflows page: http://localhost:3002
-6. Check API docs: http://localhost:8000/docs
-7. For Raspberry Pi: Configure Kiosk mode (see README.md)
+4. Access Workflows page: http://localhost:3002
+5. Check API docs: http://localhost:8000/docs
+6. For Raspberry Pi: Configure Kiosk mode (see README.md)
 
 ---
 

@@ -31,11 +31,11 @@ class WorkflowPaths:
     root: Path
     data_dir: Path
     diet_plan: Path
-    legacy_diet_plan: Path
+    diet_plan_json: Path
     recipes: Path
-    legacy_recipes: Path
+    recipes_json: Path
     tasks: Path
-    legacy_tasks: Path
+    task_status: Path
     generated_dir: Path
 
 
@@ -49,11 +49,11 @@ class WorkflowsWorkflow:
             root=repo_root,
             data_dir=data_dir,
             diet_plan=data_dir / "diet-plan.yaml",
-            legacy_diet_plan=data_dir / "diet-plan.yaml",
+            diet_plan_json=data_dir / "diet-plan.json",
             recipes=data_dir / "recipes.yaml",
-            legacy_recipes=data_dir / "recipes.yaml",
+            recipes_json=data_dir / "recipes.json",
             tasks=data_dir / "tasks.json",
-            legacy_tasks=data_dir / "tasks.json",
+            task_status=data_dir / "task-status.json",
             generated_dir=repo_root / "frontend" / "public" / "generated",
         )
 
@@ -78,14 +78,14 @@ class WorkflowsWorkflow:
             errors,
             "diet plan",
             {},
-            legacy_path=self.paths.legacy_diet_plan,
+            fallback_path=self.paths.diet_plan_json,
         )
         recipes = self._read_structured(
             self.paths.recipes,
             errors,
             "recipes",
             [],
-            legacy_path=self.paths.legacy_recipes,
+            fallback_path=self.paths.recipes_json,
         )
         recipes = normalize_recipe_source(recipes, warnings)
         if not recipes and not errors:
@@ -99,7 +99,6 @@ class WorkflowsWorkflow:
         self._write_json(self.paths.generated_dir / "meal-plan.json", plan)
         self._write_text(self.paths.generated_dir / "meal-plan.md", render_meal_plan_markdown(plan))
         self._write_text(self.paths.generated_dir / "meal-plan.html", meal_html)
-        self._write_text(self.paths.generated_dir / "meal-plan" / "index.html", meal_html)
         self._mark_task("generate-meal-plan", True)
         status = self._write_status(plan, None, warnings, errors)
         return {"ok": True, "warnings": warnings, "meal_count": count_selected_meals(plan), "status": status}
@@ -115,7 +114,7 @@ class WorkflowsWorkflow:
             errors,
             "recipes",
             [],
-            legacy_path=self.paths.legacy_recipes,
+            fallback_path=self.paths.recipes_json,
         )
         recipes = normalize_recipe_source(recipes, warnings)
         if not recipes and not errors:
@@ -129,7 +128,6 @@ class WorkflowsWorkflow:
         self._write_json(self.paths.generated_dir / "grocery-list.json", grocery_list)
         self._write_text(self.paths.generated_dir / "grocery-list.md", render_grocery_markdown(grocery_list))
         self._write_text(self.paths.generated_dir / "grocery-list.html", grocery_html)
-        self._write_text(self.paths.generated_dir / "grocery-list" / "index.html", grocery_html)
         self._mark_task("generate-grocery-list", True)
         status = self._write_status(meal_plan, grocery_list, warnings, errors)
         return {"ok": True, "warnings": unique_list(warnings), "item_count": grocery_list["item_count"], "status": status}
@@ -238,15 +236,11 @@ class WorkflowsWorkflow:
         errors: list[str],
         label: str,
         empty_value: Any,
-        legacy_path: Path | None = None,
+        fallback_path: Path | None = None,
     ):
         read_path = path
-        if not read_path.exists() and legacy_path and legacy_path.exists():
-            read_path = legacy_path
-        if not read_path.exists() and legacy_path:
-            legacy_json = legacy_path.with_suffix(".json")
-            if legacy_json.exists():
-                read_path = legacy_json
+        if not read_path.exists() and fallback_path and fallback_path.exists():
+            read_path = fallback_path
         if not read_path.exists():
             errors.append(f"Missing {label} file: {path}")
             return empty_value
@@ -301,8 +295,7 @@ class WorkflowsWorkflow:
     def _read_tasks(self) -> list[dict[str, Any]]:
         data = (
             self._read_optional_json(self.paths.tasks)
-            or self._read_optional_json(self.paths.legacy_tasks)
-            or self._read_optional_json(self.paths.legacy_tasks.with_name("task-status.json"))
+            or self._read_optional_json(self.paths.task_status)
         )
         if not data or not isinstance(data.get("tasks"), list):
             return deepcopy(DEFAULT_TASKS)
@@ -332,8 +325,6 @@ class WorkflowsWorkflow:
         missing_meals = extract_missing_meals(meal_plan)
         meal_plan_html_exists = (self.paths.generated_dir / "meal-plan.html").exists()
         grocery_list_html_exists = (self.paths.generated_dir / "grocery-list.html").exists()
-        meal_plan_index_exists = (self.paths.generated_dir / "meal-plan" / "index.html").exists()
-        grocery_list_index_exists = (self.paths.generated_dir / "grocery-list" / "index.html").exists()
         meal_plan_generated = bool(meal_plan) and meal_plan_html_exists
         grocery_list_generated = bool(grocery_list) and grocery_list_html_exists
         status = {
@@ -348,9 +339,9 @@ class WorkflowsWorkflow:
             "errors": errors,
             "tasks": self._read_tasks(),
             "artifacts": {
-                "meal_plan_html": "/generated/meal-plan.html" if meal_plan_html_exists else ("/generated/meal-plan/" if meal_plan_index_exists else None),
+                "meal_plan_html": "/generated/meal-plan.html" if meal_plan_html_exists else None,
                 "meal_plan_md": "/generated/meal-plan.md",
-                "grocery_list_html": "/generated/grocery-list.html" if grocery_list_html_exists else ("/generated/grocery-list/" if grocery_list_index_exists else None),
+                "grocery_list_html": "/generated/grocery-list.html" if grocery_list_html_exists else None,
                 "grocery_list_md": "/generated/grocery-list.md",
             },
             "notification_extension": "Add future local notification hooks after workflows:generate succeeds.",

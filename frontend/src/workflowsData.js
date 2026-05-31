@@ -38,13 +38,10 @@ export function fetchGroceryList() {
   });
 }
 
-function fetchGeneratedJson(path, fallback, legacyPath = null) {
+function fetchGeneratedJson(path, fallback) {
   return fetch(`${path}?t=${Date.now()}`)
     .then((response) => {
       if (!response.ok) {
-        if (legacyPath) {
-          return fetchGeneratedJson(legacyPath, fallback);
-        }
         return { data: fallback };
       }
       return response.json().then((data) => ({ data }));

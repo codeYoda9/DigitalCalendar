@@ -7,8 +7,7 @@ Phase 1 scope only:
 - Tasks: simple shared todo list.
 - Grocery: simple shared shopping list.
 - Meals: manual weekly meal plan text.
-- Calendar: read-only Google Calendar display.
-- UI: static 4-panel dashboard.
+- UI: static household dashboard.
 - Sync: polling only.
 - No OCR.
 - No Alexa.
@@ -34,24 +33,19 @@ Core frontend layout:
 Portrait 15-inch screen dashboard.
 
 Panels:
-1. Today / Calendar
-   - Show today’s date.
-   - Show upcoming Google Calendar events.
-   - Read-only display.
-
-2. Tasks
+1. Tasks
    - Show active tasks.
    - Add task.
    - Mark task complete.
    - Delete task.
 
-3. Grocery
+2. Grocery
    - Show grocery items.
    - Add item.
    - Mark item checked.
    - Delete item.
 
-4. Meal Plan
+3. Meal Plan
    - Weekly grid.
    - Days: Monday through Sunday.
    - Fields per day: breakfast, lunch, dinner.
@@ -63,7 +57,7 @@ Interaction rules:
 - Large text.
 - Common actions should take 1–2 taps.
 - UI must be readable from about 8 feet away.
-- Avoid clutter beyond the four panels.
+- Avoid clutter beyond the household workflow panels.
 
 Backend requirements:
 Create REST API endpoints for:
@@ -83,12 +77,6 @@ Groceries:
 Meals:
 - GET /api/meals/week
 - PUT /api/meals/week
-
-Calendar:
-- GET /api/calendar/events
-- For now, create a placeholder calendar provider interface.
-- Add clear TODO comments for Google Calendar API integration.
-- Return mock events if Google credentials are not configured.
 
 Database requirements:
 Use PostgreSQL tables:

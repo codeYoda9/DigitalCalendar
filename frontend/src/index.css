@@ -97,50 +97,6 @@ body {
   margin-top: 1rem;
 }
 
-/* Calendar/Today panel */
-.calendar-date {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #667eea;
-  margin-bottom: 1rem;
-}
-
-.calendar-day {
-  font-size: 2rem;
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.events-list {
-  list-style: none;
-}
-
-.event-item {
-  background: #f0f4ff;
-  padding: 1rem;
-  margin-bottom: 0.8rem;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
-}
-
-.event-time {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #667eea;
-}
-
-.event-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #333;
-  margin: 0.5rem 0;
-}
-
-.event-description {
-  font-size: 1rem;
-  color: #666;
-}
-
 .offline-banner {
   background: #fff3cd;
   color: #856404;
@@ -615,12 +571,6 @@ body {
     grid-column: auto;
     grid-row: auto;
   }
-}
-
-/* Utility classes */
-.loading {
-  opacity: 0.6;
-  pointer-events: none;
 }
 
 .error-message {

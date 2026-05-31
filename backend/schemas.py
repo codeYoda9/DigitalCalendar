@@ -1,6 +1,6 @@
 """Pydantic schemas for request/response validation."""
 from datetime import date, datetime
-from typing import Optional, List
+from typing import Optional
 from pydantic import BaseModel, Field
 
 
@@ -68,36 +68,6 @@ class MealWeekData(BaseModel):
     Friday: MealDay
     Saturday: MealDay
     Sunday: MealDay
-
-
-class MealResponse(BaseModel):
-    id: int
-    week_start_date: date
-    day_of_week: str
-    breakfast: Optional[str]
-    lunch: Optional[str]
-    dinner: Optional[str]
-    updated_at: datetime
-
-    class Config:
-        from_attributes = True
-
-
-# Calendar Event Schemas
-class CalendarEvent(BaseModel):
-    """Calendar event response."""
-    id: str
-    title: str
-    start: datetime
-    end: datetime
-    description: Optional[str] = None
-    location: Optional[str] = None
-
-
-class CalendarEventsResponse(BaseModel):
-    """Calendar events for a given date range."""
-    events: List[CalendarEvent]
-    date: date
 
 
 # Health check

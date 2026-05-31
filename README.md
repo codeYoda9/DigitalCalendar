@@ -4,7 +4,6 @@ A self-hosted household dashboard for a 15-inch portrait touchscreen. Perfect fo
 
 ## Features (Phase 1)
 
-- **📅 Calendar**: Read-only Google Calendar display (mock events in Phase 1)
 - **✓ Tasks**: Shared todo list with add/mark complete/delete
 - **🛒 Grocery**: Shared shopping list with checked items
 - **🍽️ Meals**: Weekly meal planning with breakfast/lunch/dinner per day
@@ -27,7 +26,6 @@ A self-hosted household dashboard for a 15-inch portrait touchscreen. Perfect fo
 Raspberry Pi 5 (Display)
   └─ Browser (Kiosk Mode)
       ├─ Main Dashboard (React) - 3000
-      ├─ Calendar Page (React) - 3001
       └─ Workflows Page (React) - 3002
           └─ Backend API (FastAPI) - 8000
               └─ PostgreSQL - 5432
@@ -78,16 +76,14 @@ CONTAINER ID   IMAGE                          PORTS
 abc123...      digital-calendar-db            5432
 def456...      digital-calendar-backend       8000
 ghi789...      digital-calendar-frontend      3000
-jkl012...      digital-calendar-calendar      3001
-mno345...      digital-calendar-workflows     3002
+jkl012...      digital-calendar-workflows     3002
 ```
 
 ### 4. Access Dashboard
 
 - **Main Dashboard**: http://localhost:3000
-- **Calendar Page**: http://localhost:3001
 - **Workflows Page**: http://localhost:3002
-- **From Raspberry Pi**: Use the Tailscale IP of the NUC, e.g., http://100.x.x.x:3000, http://100.x.x.x:3001, or http://100.x.x.x:3002
+- **From Raspberry Pi**: Use the Tailscale IP of the NUC, e.g., http://100.x.x.x:3000 or http://100.x.x.x:3002
 - **API Documentation**: http://localhost:8000/docs (Swagger UI)
 
 ### 5. Check Backend Health
@@ -115,7 +111,7 @@ Create a `.env` file in the project root if you need to override defaults:
 DATABASE_URL=postgresql://digitalcalendar:digitalcalendar@db:5432/digitalcalendar
 
 # Backend
-CORS_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://100.104.202.19:3000,http://100.104.202.19:3001,http://100.104.202.19:3002
+CORS_ORIGINS=http://localhost:3000,http://localhost:3002,http://100.104.202.19:3000,http://100.104.202.19:3002
 PORT=8000
 ENV=production
 
@@ -160,7 +156,7 @@ npm test                     # Run Workflows unit tests
 
 ### Dashboard
 
-The React dashboard reads generated Workflows files from `/generated/*.json` and `/generated/*.html`. The main dashboard on port `3000` shows Tasks, Grocery, and Meals. Calendar has its own full-page frontend on port `3001`, and Workflows has its own full-page frontend on port `3002`.
+The React dashboard reads generated Workflows files from `/generated/*.json` and `/generated/*.html`. The main dashboard on port `3000` shows Tasks, Grocery, and Meals. Workflows has its own full-page frontend on port `3002`.
 
 If generated files are missing, the dashboard shows "Not generated yet" and the command to run instead of broken links. On Saturdays it shows "Review grocery list and shop groceries" with the Shop groceries task status and a link to the generated grocery list.
 
@@ -194,9 +190,6 @@ The frontend container mounts `./frontend/public/generated` to `/app/build/gener
 ### Meals
 - `GET /api/meals/week?date_param=2024-01-01` - Get weekly meal plan
 - `PUT /api/meals/week` - Update entire week
-
-### Calendar
-- `GET /api/calendar/events?date_param=2024-01-01` - Get events for date onwards
 
 ### Health & Info
 - `GET /health` - Health check
@@ -395,19 +388,12 @@ Common issues:
 2. Check CORS configuration in backend environment
 3. Check browser console for network errors (F12)
 
-### No Events in Calendar
-Phase 1 shows mock events. To integrate Google Calendar API:
-- See TODO comments in `backend/routes_calendar.py`
-- Requires Google Calendar credentials
-- Will be implemented in Workflows
-
 ## Polling Behavior
 
 The frontend polls the backend every **10 seconds**:
 - Task list
 - Grocery list
 - Meal plan
-- Calendar events
 
 If the backend becomes unreachable:
 - Shows "Offline: showing cached data" banner
@@ -423,7 +409,6 @@ Data is cached in browser localStorage:
 
 ## Workflows Roadmap
 
-- Google Calendar API integration
 - WebSocket support (replace polling)
 - User authentication/multiuser accounts
 - Mealie recipe integration
@@ -489,4 +474,4 @@ For issues or questions:
 
 ---
 
-**Note**: This is Phase 1 implementation focusing on core features with polling and basic mock data. More advanced features (Google Calendar, WebSockets, user auth) are planned for later phases.
+**Note**: This is a Phase 1 implementation focusing on core household dashboard features with polling and local workflow generation. More advanced features like WebSockets and user auth may be added later.

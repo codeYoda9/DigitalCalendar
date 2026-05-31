@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { taskApi } from '../api';
 import usePolledData from '../hooks/usePolledData';
 import { WORKFLOWS_GENERATE_COMMAND, fetchWorkflowStatus } from '../workflowsData';
 
 function TasksPanel() {
   const [newTask, setNewTask] = useState('');
-  const [tasks, setTasks] = useState([]);
   const [isAdding, setIsAdding] = useState(false);
 
   const { data: workflowStatus } = usePolledData(fetchWorkflowStatus, 30000);
-  const { data: tasksData, error, refetch } = usePolledData(
-    () => taskApi.getTasks(),
-    60000
-  );
-
-  useEffect(() => {
-    if (tasksData?.data) {
-      setTasks(tasksData.data);
-    }
-  }, [tasksData]);
+  const { data: tasksData, error, refetch } = usePolledData(taskApi.getTasks, 60000, 'tasks');
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -54,6 +44,7 @@ function TasksPanel() {
     }
   };
 
+  const tasks = Array.isArray(tasksData) ? tasksData : [];
   const activeTasks = tasks.filter((t) => !t.done);
   const completedTasks = tasks.filter((t) => t.done);
   const workflowTasks = workflowStatus?.tasks || [];

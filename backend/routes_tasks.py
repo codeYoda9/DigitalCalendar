@@ -1,10 +1,17 @@
 """Task API routes."""
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 import models
 import schemas
+from crud_helpers import (
+    create_record,
+    delete_record,
+    get_record_or_404,
+    list_records,
+    update_record,
+)
 from database import get_db
 
 router = APIRouter(prefix="/api/tasks", tags=["tasks"])
@@ -15,20 +22,13 @@ def get_tasks(
     skip: int = 0, limit: int = 100, done: bool = None, db: Session = Depends(get_db)
 ):
     """Get all tasks, optionally filtered by completion status."""
-    query = db.query(models.Task)
-    if done is not None:
-        query = query.filter(models.Task.done == done)
-    return query.offset(skip).limit(limit).all()
+    return list_records(db, models.Task, "done", done, skip, limit)
 
 
 @router.post("", response_model=schemas.TaskResponse, status_code=201)
 def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
     """Create a new task."""
-    db_task = models.Task(**task.dict())
-    db.add(db_task)
-    db.commit()
-    db.refresh(db_task)
-    return db_task
+    return create_record(db, models.Task, task)
 
 
 @router.patch("/{task_id}", response_model=schemas.TaskResponse)
@@ -36,27 +36,13 @@ def update_task(
     task_id: int, task_update: schemas.TaskUpdate, db: Session = Depends(get_db)
 ):
     """Update a task."""
-    db_task = db.query(models.Task).filter(models.Task.id == task_id).first()
-    if not db_task:
-        raise HTTPException(status_code=404, detail="Task not found")
-
-    update_data = task_update.dict(exclude_unset=True)
-    for field, value in update_data.items():
-        setattr(db_task, field, value)
-
-    db.add(db_task)
-    db.commit()
-    db.refresh(db_task)
-    return db_task
+    db_task = get_record_or_404(db, models.Task, task_id, "Task not found")
+    return update_record(db, db_task, task_update)
 
 
 @router.delete("/{task_id}", status_code=204)
 def delete_task(task_id: int, db: Session = Depends(get_db)):
     """Delete a task."""
-    db_task = db.query(models.Task).filter(models.Task.id == task_id).first()
-    if not db_task:
-        raise HTTPException(status_code=404, detail="Task not found")
-
-    db.delete(db_task)
-    db.commit()
+    db_task = get_record_or_404(db, models.Task, task_id, "Task not found")
+    delete_record(db, db_task)
     return None

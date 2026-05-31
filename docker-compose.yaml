@@ -26,15 +26,9 @@ services:
     container_name: digital-calendar-backend
     environment:
       DATABASE_URL: postgresql://digitalcalendar:digitalcalendar@db:5432/digitalcalendar
-      CORS_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost,http://100.104.202.19:3000,http://100.104.202.19:3001,http://100.104.202.19:3002,http://home.lab:3000,http://home.lab:3001,http://home.lab:3002,http://10.0.0.156:3000,http://10.0.0.156:3001,http://10.0.0.156:3002
+      CORS_ORIGINS: http://localhost:3000,http://localhost:3002,http://localhost,http://100.104.202.19:3000,http://100.104.202.19:3002,http://home.lab:3000,http://home.lab:3002,http://10.0.0.156:3000,http://10.0.0.156:3002
       PORT: "8000"
       ENV: production
-      # Google Calendar Configuration
-      GOOGLE_CALENDAR_ENABLED: "true"
-      GOOGLE_CALENDAR_ID: "${GOOGLE_CALENDAR_ID:-primary}"  # Your shared calendar ID
-      GOOGLE_CLIENT_ID: "${GOOGLE_CLIENT_ID}"
-      GOOGLE_CLIENT_SECRET: "${GOOGLE_CLIENT_SECRET}"
-      GOOGLE_REDIRECT_URI: "${GOOGLE_REDIRECT_URI:-http://localhost:8000/auth/google/callback}"
     ports:
       - "8000:8000"
     depends_on:
@@ -59,25 +53,6 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend/public/generated:/app/build/generated
-    depends_on:
-      - backend
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    restart: unless-stopped
-
-  # Full-page Calendar frontend
-  frontend-calendar:
-    build:
-      context: ./frontend
-      args:
-        REACT_APP_API_URL: http://100.104.202.19:8000
-        REACT_APP_DEFAULT_VIEW: calendar
-    container_name: digital-calendar-calendar
-    ports:
-      - "3001:3000"
     depends_on:
       - backend
     healthcheck:
@@ -119,10 +94,8 @@ services:
       - caddy_config:/config
     depends_on:
       - homepage
-      - mealie
       - backend
       - frontend
-      - frontend-calendar
       - frontend-workflows
     restart: unless-stopped
 
@@ -133,7 +106,7 @@ services:
       - /home/shreyasshivalkar/Projects/DigitalCalendar/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: home.lab,100.104.202.19,mealie.home.lab,localhost:3000,localhost:3001,localhost:3002,127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002,10.0.0.156:3000,10.0.0.156:3001,10.0.0.156:3002,100.104.202.19:3000,100.104.202.19:3001,100.104.202.19:3002
+      HOMEPAGE_ALLOWED_HOSTS: home.lab,100.104.202.19,mealie.home.lab,localhost:3000,localhost:3002,127.0.0.1:3000,127.0.0.1:3002,10.0.0.156:3000,10.0.0.156:3002,100.104.202.19:3000,100.104.202.19:3002
     restart: unless-stopped
 
   alexa-dashboard:

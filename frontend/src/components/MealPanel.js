@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { format, startOfWeek } from 'date-fns';
 import { mealApi } from '../api';
 import usePolledData from '../hooks/usePolledData';
@@ -10,6 +10,11 @@ const MEALS = ['breakfast', 'lunch', 'dinner'];
 function MealPanel() {
   const today = new Date();
   const weekStart = startOfWeek(today, { weekStartsOn: 1 }); // Monday = 1
+  const weekStartParam = format(weekStart, 'yyyy-MM-dd');
+  const fetchWeeklyMeals = useCallback(
+    () => mealApi.getWeeklyMeals(weekStartParam),
+    [weekStartParam]
+  );
 
   const [mealData, setMealData] = useState({
     Monday: { breakfast: '', lunch: '', dinner: '' },
@@ -25,8 +30,9 @@ function MealPanel() {
   const { data: generatedPlan } = usePolledData(fetchMealPlan, 30000);
   const { data: workflowStatus } = usePolledData(fetchWorkflowStatus, 30000);
   const { data: mealsData, error, refetch } = usePolledData(
-    () => mealApi.getWeeklyMeals(format(weekStart, 'yyyy-MM-dd')),
-    60000
+    fetchWeeklyMeals,
+    60000,
+    `weekly-meals-${weekStartParam}`
   );
 
   useEffect(() => {
@@ -48,7 +54,7 @@ function MealPanel() {
   const handleSaveMeals = async () => {
     setIsSaving(true);
     try {
-      await mealApi.updateWeeklyMeals(mealData, format(weekStart, 'yyyy-MM-dd'));
+      await mealApi.updateWeeklyMeals(mealData, weekStartParam);
       refetch();
     } catch (err) {
       console.error('Failed to save meals:', err);
