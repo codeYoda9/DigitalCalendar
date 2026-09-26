@@ -2,8 +2,6 @@
 - Home:
     - Dashboard:
         href: "http://100.104.202.19:3000"
-    - Workflows:
-        href: "http://100.104.202.19:3002"
 
 - Food:
     []

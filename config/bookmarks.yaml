@@ -16,3 +16,8 @@
 #     - YouTube:
 #         - abbr: YT
 #           href: https://youtube.com/
+
+- Entertainment:
+    - Jellyfin:
+        - abbr: JF
+          href: http://100.104.202.19:8096

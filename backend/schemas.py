@@ -52,24 +52,6 @@ class GroceryResponse(GroceryBase):
         from_attributes = True
 
 
-# Meal Schemas
-class MealDay(BaseModel):
-    breakfast: Optional[str] = Field(None, max_length=255)
-    lunch: Optional[str] = Field(None, max_length=255)
-    dinner: Optional[str] = Field(None, max_length=255)
-
-
-class MealWeekData(BaseModel):
-    """Weekly meal plan data."""
-    Monday: MealDay
-    Tuesday: MealDay
-    Wednesday: MealDay
-    Thursday: MealDay
-    Friday: MealDay
-    Saturday: MealDay
-    Sunday: MealDay
-
-
 # Health check
 class HealthResponse(BaseModel):
     status: str

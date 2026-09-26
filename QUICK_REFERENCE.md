@@ -15,8 +15,7 @@ docker compose ps
 
 # Access dashboard
 # Main dashboard: http://localhost:3000
-# Workflows page: http://localhost:3002
-# Raspberry Pi: http://[NUC_TAILSCALE_IP]:3000 or :3002
+# Raspberry Pi: http://[NUC_TAILSCALE_IP]:3000
 # API Docs: http://localhost:8000/docs
 ```
 
@@ -56,7 +55,6 @@ npm start
 | `/api/tasks` | GET | List tasks |
 | `/api/tasks` | POST | Create task |
 | `/api/groceries` | GET | List groceries |
-| `/api/meals/week` | GET | Get meal plan |
 | `/health` | GET | Health check |
 | `/docs` | GET | Swagger UI |
 
@@ -77,10 +75,9 @@ docker-compose.yaml → Orchestration
 
 ## 🎯 Features
 
-- ✅ 4-panel touch-first dashboard
+- ✅ Touch-first dashboard
 - ✅ Shared tasks todo list
 - ✅ Shared grocery shopping list
-- ✅ Weekly meal planning
 - ✅ 10-second polling
 - ✅ Offline support with caching
 - ✅ Tailscale network access
@@ -98,7 +95,6 @@ docker-compose.yaml → Orchestration
 | Service | URL |
 |---------|-----|
 | Main Dashboard | http://localhost:3000 |
-| Workflows Page | http://localhost:3002 |
 | Backend API | http://localhost:8000 |
 | API Docs | http://localhost:8000/docs |
 | Database | localhost:5432 |
@@ -133,7 +129,6 @@ Change port in `docker-compose.yaml`
 1. Build and start: `docker compose build && docker compose up -d`
 2. Verify services: `docker compose ps`
 3. Access dashboard: http://localhost:3000
-4. Access Workflows page: http://localhost:3002
 5. Check API docs: http://localhost:8000/docs
 6. For Raspberry Pi: Configure Kiosk mode (see README.md)
 

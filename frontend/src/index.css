@@ -27,42 +27,25 @@ body {
   padding: 1rem;
 }
 
-.single-panel-page .panel {
-  min-height: calc(100vh - 2rem);
-}
-
-.single-panel-page .workflows-panel {
-  overflow-y: auto;
-}
-
-.single-panel-page .workflows-summary-grid {
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-}
-
 /* Main dashboard container */
 .dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 1rem;
   padding: 1rem;
   height: 100vh;
   overflow: auto;
 }
 
-.dashboard .meal-panel {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-}
-
 .dashboard .grocery-panel {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
 }
 
 .dashboard .tasks-panel {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
 }
 
 /* Panel styles - Touch-first, large text and buttons */
@@ -141,6 +124,13 @@ body {
 .task-item.completed .task-text {
   text-decoration: line-through;
   color: #999;
+}
+
+.task-section-label {
+  color: #777;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.7rem;
 }
 
 .task-delete-btn {
@@ -265,6 +255,13 @@ body {
   color: #999;
 }
 
+.grocery-section-label {
+  color: #777;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.7rem;
+}
+
 .grocery-delete-btn {
   width: 2.2rem;
   height: 2.2rem;
@@ -285,267 +282,6 @@ body {
 
 .grocery-delete-btn:active {
   background: #ff4040;
-}
-
-/* Meal plan panel */
-.meal-plan-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.8rem;
-}
-
-.meal-day {
-  background: #f0f4ff;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.meal-day-label {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #667eea;
-  margin-bottom: 0.8rem;
-  text-align: center;
-}
-
-.meal-input {
-  width: 100%;
-  padding: 0.6rem;
-  margin-bottom: 0.6rem;
-  font-size: 0.95rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: inherit;
-}
-
-.meal-input:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
-}
-
-.meal-type {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.3rem;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.meal-save-btn {
-  padding: 1rem 2rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  background: #667eea;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  transition: background 0.2s;
-}
-
-.meal-save-btn:hover {
-  background: #5568d3;
-}
-
-.meal-save-btn:active {
-  background: #4556c0;
-}
-
-.generated-meal-list,
-.generated-grocery-list,
-.workflows-task-list {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.generated-meal-day,
-.grocery-category {
-  background: #f7f8fc;
-  border-radius: 8px;
-  padding: 0.75rem;
-}
-
-.generated-meal {
-  display: grid;
-  gap: 0.15rem;
-  padding: 0.45rem 0;
-}
-
-.generated-meal.missing {
-  color: #9f1f1f;
-}
-
-.meal-warning {
-  font-size: 0.9rem;
-  color: #9f1f1f;
-}
-
-.generated-grocery-summary {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 1.05rem;
-}
-
-.generated-grocery-summary a {
-  color: #4556c0;
-  font-weight: 700;
-}
-
-.grocery-category-title {
-  color: #667eea;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-
-.generated-grocery-item,
-.generated-more {
-  font-size: 1rem;
-  padding: 0.2rem 0;
-}
-
-.generated-more {
-  color: #666;
-}
-
-.workflows-empty {
-  align-items: center;
-  background: #fff3cd;
-  border-left: 4px solid #f9a825;
-  border-radius: 8px;
-  color: #5f4200;
-  display: grid;
-  gap: 0.25rem;
-  justify-items: start;
-  padding: 1rem;
-}
-
-.manual-overrides {
-  border-top: 1px solid #eee;
-  padding-top: 0.75rem;
-}
-
-.manual-overrides summary {
-  color: #666;
-  cursor: pointer;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
-.manual-grid {
-  margin-bottom: 0.75rem;
-  max-height: 18rem;
-  overflow-y: auto;
-}
-
-/* Workflows household planning panel */
-.workflows-panel {
-  gap: 0.8rem;
-}
-
-.shopping-reminder {
-  background: #fff3cd;
-  border-left: 4px solid #f9a825;
-  border-radius: 8px;
-  color: #5f4200;
-  font-size: 1.05rem;
-  padding: 0.9rem;
-}
-
-.shopping-reminder.prominent {
-  border-left-color: #ef6c00;
-  font-size: 1.12rem;
-}
-
-.shopping-reminder a,
-.workflows-links a {
-  color: #4556c0;
-  font-weight: 700;
-}
-
-.workflows-summary-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.7rem;
-}
-
-.workflows-summary-item {
-  background: #f7f8fc;
-  border-radius: 8px;
-  padding: 0.8rem;
-}
-
-.summary-label {
-  color: #666;
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  text-transform: uppercase;
-}
-
-.workflows-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 1.05rem;
-}
-
-.workflows-links span {
-  color: #666;
-}
-
-.workflows-checklist {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.workflows-task {
-  align-items: center;
-  background: #f9f9f9;
-  border-radius: 8px;
-  color: #333;
-  display: flex;
-  font-size: 1rem;
-  gap: 0.6rem;
-  padding: 0.55rem 0.7rem;
-}
-
-.workflows-task.done {
-  background: #e8f5e9;
-  color: #4c7a4f;
-}
-
-.workflows-task-box {
-  align-items: center;
-  border: 2px solid #667eea;
-  border-radius: 4px;
-  display: inline-flex;
-  height: 1.35rem;
-  justify-content: center;
-  min-width: 1.35rem;
-}
-
-.workflows-warnings {
-  background: #ffebee;
-  border-left: 4px solid #c62828;
-  border-radius: 8px;
-  color: #9f1f1f;
-  display: grid;
-  font-size: 0.95rem;
-  gap: 0.35rem;
-  padding: 0.8rem;
-}
-
-.workflows-warnings.compact {
-  margin-top: 0.75rem;
-}
-
-.workflows-task-row {
-  margin-bottom: 0;
 }
 
 /* Responsive design for different screen sizes */

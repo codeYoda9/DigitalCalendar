@@ -1,6 +1,6 @@
 # Development Guide - Digital Calendar Phase 1
 
-This guide covers architecture, component details, and development workflows.
+This guide covers architecture, component details, and development practices.
 
 ## Project Structure
 
@@ -13,7 +13,6 @@ DigitalCalendar/
 │   ├── schemas.py              # Pydantic request/response schemas
 │   ├── routes_tasks.py         # Task endpoints
 │   ├── routes_groceries.py     # Grocery endpoints
-│   ├── routes_meals.py         # Meal endpoints
 │   ├── requirements.txt        # Python dependencies
 │   ├── Dockerfile              # Backend container config
 │   └── .dockerignore
@@ -31,7 +30,6 @@ DigitalCalendar/
 │   │   └── components/
 │   │       ├── TasksPanel.js    # Tasks todo list
 │   │       ├── GroceryPanel.js  # Shopping list
-│   │       └── MealPanel.js     # Weekly meal plan
 │   ├── package.json            # Node dependencies
 │   ├── Dockerfile              # Frontend container config
 │   └── .dockerignore
@@ -59,7 +57,6 @@ DigitalCalendar/
 ### Database Models (`backend/models.py`)
 - `Task`: id, text, done, created_at, updated_at
 - `Grocery`: id, item, checked, created_at, updated_at
-- `Meal`: id, week_start_date, day_of_week, breakfast, lunch, dinner, updated_at
 
 ### Request/Response Schemas (`backend/schemas.py`)
 - Pydantic models for validation
@@ -70,7 +67,6 @@ DigitalCalendar/
 ### Route Modules
 - `routes_tasks.py`: CRUD operations for tasks
 - `routes_groceries.py`: CRUD operations for grocery items
-- `routes_meals.py`: Weekly meal plan retrieval and update
 
 ## Frontend Architecture
 
@@ -81,10 +77,10 @@ DigitalCalendar/
 │  - Generated plan     │  - Generated│
 │  - Manual overrides   │  - Overrides│
 ├────────────────────────┼────────────┤
-│  ✓ TASKS              │  WORKFLOWS  │
-│  - Items list         │  - Weekly   │
-│  - Checked section    │    grid     │
-│  - Add item           │  - Editable │
+│  ✓ TASKS              │  🛒 GROCERY │
+│  - Items list         │  - Shopping │
+│  - Checked section    │    list     │
+│  - Add item           │  - Checked  │
 └─────────────────────────────────────┘
 ```
 
@@ -122,13 +118,6 @@ Responsive design:
 - Toggle and delete items
 - Polling integration
 
-#### MealPanel (`frontend/src/components/MealPanel.js`)
-- 3-column grid for days of week
-- 3 input fields per day (breakfast, lunch, dinner)
-- Save entire week with single button
-- Validates and updates on backend
-- Offline support with caching
-
 ## API Endpoints
 
 ### Tasks
@@ -147,18 +136,12 @@ PATCH  /api/groceries/{id}    - Update item (body: {item?: string, checked?: boo
 DELETE /api/groceries/{id}    - Delete item
 ```
 
-### Meals
-```
-GET  /api/meals/week    - Get week plan (optional: ?date_param=2024-01-01)
-PUT  /api/meals/week    - Update week plan (body: {Monday: {...}, ...})
-```
-
 ### Health
 ```
 GET  /health    - Health check (returns: {status: string, database: string})
 ```
 
-## Development Workflow
+## Development Process
 
 ### Local Backend Development
 ```bash
@@ -188,10 +171,9 @@ docker exec -it digital-calendar-db psql -U digitalcalendar -d digitalcalendar
 # Common queries
 SELECT * FROM tasks;
 SELECT * FROM groceries;
-SELECT * FROM meals WHERE week_start_date = '2024-01-01';
 ```
 
-### Docker Compose Workflow
+### Docker Compose Usage
 ```bash
 # Build all services
 docker compose build
@@ -210,6 +192,26 @@ docker compose down
 
 # Remove volumes (caution: deletes data)
 docker compose down -v
+```
+
+### Start the stack automatically after host or Docker restarts
+
+Container restart policies recover containers that already exist, but they do
+not recreate a missing container or reconcile a changed Compose file. Install
+the repository's systemd unit once on the host so the complete stack is
+reconciled after Docker starts:
+
+```bash
+sudo install -m 0644 deploy/digitalcalendar-compose.service /etc/systemd/system/digitalcalendar-compose.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now digitalcalendar-compose.service
+```
+
+Check the deployment with:
+
+```bash
+systemctl status digitalcalendar-compose.service
+docker compose ps
 ```
 
 ## Styling System
@@ -285,7 +287,7 @@ docker compose down -v
 - CSS optimized for Chromium (Raspberry Pi browser)
 - Minimal dependencies (react, react-dom, axios, date-fns)
 
-## TODO: Workflows Features
+## TODO: Future Features
 
 ### WebSocket Support
 - Replace polling with bidirectional updates

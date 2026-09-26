@@ -50,18 +50,4 @@ export const groceryApi = {
   deleteGrocery: (id) => api.delete(`/api/groceries/${id}`),
 };
 
-// Meal API
-export const mealApi = {
-  getWeeklyMeals: (date = null) => {
-    const params = {};
-    if (date) params.date_param = date;
-    return api.get('/api/meals/week', { params });
-  },
-  updateWeeklyMeals: (meals, date = null) => {
-    const params = {};
-    if (date) params.date_param = date;
-    return api.put('/api/meals/week', meals, { params });
-  },
-};
-
 export default api;

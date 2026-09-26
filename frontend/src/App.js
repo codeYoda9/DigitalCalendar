@@ -1,11 +1,9 @@
 import React from 'react';
 import TasksPanel from './components/TasksPanel';
 import GroceryPanel from './components/GroceryPanel';
-import MealPanel from './components/MealPanel';
-import WorkflowsPanel from './components/WorkflowsPanel';
 import './index.css';
 
-const AVAILABLE_VIEWS = new Set(['dashboard', 'workflows']);
+const AVAILABLE_VIEWS = new Set(['dashboard']);
 
 function getRequestedView() {
   const defaultView = process.env.REACT_APP_DEFAULT_VIEW || 'dashboard';
@@ -31,17 +29,8 @@ function getRequestedView() {
 function App() {
   const view = getRequestedView();
 
-  if (view === 'workflows') {
-    return (
-      <div className="page-shell single-panel-page">
-        <WorkflowsPanel />
-      </div>
-    );
-  }
-
   return (
     <div className="dashboard">
-      <MealPanel />
       <GroceryPanel />
       <TasksPanel />
     </div>

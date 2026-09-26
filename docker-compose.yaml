@@ -26,7 +26,7 @@ services:
     container_name: digital-calendar-backend
     environment:
       DATABASE_URL: postgresql://digitalcalendar:digitalcalendar@db:5432/digitalcalendar
-      CORS_ORIGINS: http://localhost:3000,http://localhost:3002,http://localhost,http://100.104.202.19:3000,http://100.104.202.19:3002,http://home.lab:3000,http://home.lab:3002,http://10.0.0.156:3000,http://10.0.0.156:3002
+      CORS_ORIGINS: http://localhost:3000,http://localhost,http://100.104.202.19:3000,http://home.lab:3000,http://10.0.0.156:3000
       PORT: "8000"
       ENV: production
     ports:
@@ -62,27 +62,6 @@ services:
       retries: 3
     restart: unless-stopped
 
-  # Full-page Workflows frontend
-  frontend-workflows:
-    build:
-      context: ./frontend
-      args:
-        REACT_APP_API_URL: http://100.104.202.19:8000
-        REACT_APP_DEFAULT_VIEW: workflows
-    container_name: digital-calendar-workflows
-    ports:
-      - "3002:3000"
-    volumes:
-      - ./frontend/public/generated:/app/build/generated
-    depends_on:
-      - backend
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    restart: unless-stopped
-
   caddy:
     image: caddy:2
     container_name: caddy
@@ -96,7 +75,6 @@ services:
       - homepage
       - backend
       - frontend
-      - frontend-workflows
     restart: unless-stopped
 
   homepage:
@@ -106,7 +84,25 @@ services:
       - /home/shreyasshivalkar/Projects/DigitalCalendar/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: home.lab,100.104.202.19,mealie.home.lab,localhost:3000,localhost:3002,127.0.0.1:3000,127.0.0.1:3002,10.0.0.156:3000,10.0.0.156:3002,100.104.202.19:3000,100.104.202.19:3002
+      HOMEPAGE_ALLOWED_HOSTS: home.lab,100.104.202.19,mealie.home.lab,localhost:3000,127.0.0.1:3000,10.0.0.156:3000,100.104.202.19:3000
+    restart: unless-stopped
+
+  # Jellyfin media server
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - jellyfin_config:/config
+      - jellyfin_cache:/cache
+      - jellyfin_media:/media
+    devices:
+      - /dev/dri:/dev/dri
+    ports:
+      - "8097:8096" # Host Jellyfin already uses 8096
     restart: unless-stopped
 
   alexa-dashboard:
@@ -131,3 +127,6 @@ volumes:
   caddy_data:
   caddy_config:
   postgres_data:
+  jellyfin_config:
+  jellyfin_cache:
+  jellyfin_media:

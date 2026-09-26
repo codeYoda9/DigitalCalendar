@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 /**
  * Custom hook for polling backend data with offline fallback
- * Polls generated/local data or backend data with quiet cached fallback.
+ * Polls local or backend data with a quiet cached fallback.
  */
 export function usePolledData(fetchFunction, pollInterval = 60000, cacheKey = null) {
   const [data, setData] = useState(null);

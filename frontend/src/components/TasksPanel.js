@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { taskApi } from '../api';
 import usePolledData from '../hooks/usePolledData';
-import { WORKFLOWS_GENERATE_COMMAND, fetchWorkflowStatus } from '../workflowsData';
 
 function TasksPanel() {
   const [newTask, setNewTask] = useState('');
   const [isAdding, setIsAdding] = useState(false);
+  const [pendingTaskId, setPendingTaskId] = useState(null);
 
-  const { data: workflowStatus } = usePolledData(fetchWorkflowStatus, 30000);
   const { data: tasksData, error, refetch } = usePolledData(taskApi.getTasks, 60000, 'tasks');
 
   const handleAddTask = async (e) => {
     e.preventDefault();
-    if (!newTask.trim()) return;
+    const text = newTask.trim();
+    if (!text) return;
 
     setIsAdding(true);
     try {
-      await taskApi.createTask(newTask);
+      await taskApi.createTask(text);
       setNewTask('');
       refetch();
     } catch (err) {
@@ -27,27 +27,54 @@ function TasksPanel() {
   };
 
   const handleToggleTask = async (id, done) => {
+    setPendingTaskId(id);
     try {
       await taskApi.updateTask(id, { done: !done });
       refetch();
     } catch (err) {
       console.error('Failed to toggle task:', err);
+    } finally {
+      setPendingTaskId(null);
     }
   };
 
   const handleDeleteTask = async (id) => {
+    setPendingTaskId(id);
     try {
       await taskApi.deleteTask(id);
       refetch();
     } catch (err) {
       console.error('Failed to delete task:', err);
+    } finally {
+      setPendingTaskId(null);
     }
   };
 
   const tasks = Array.isArray(tasksData) ? tasksData : [];
   const activeTasks = tasks.filter((t) => !t.done);
   const completedTasks = tasks.filter((t) => t.done);
-  const workflowTasks = workflowStatus?.tasks || [];
+  const renderTask = (task) => (
+    <div key={task.id} className={`task-item ${task.done ? 'completed' : ''}`}>
+      <input
+        type="checkbox"
+        className="task-checkbox"
+        checked={task.done}
+        onChange={() => handleToggleTask(task.id, task.done)}
+        disabled={pendingTaskId === task.id}
+        aria-label={`Mark ${task.text} ${task.done ? 'active' : 'done'}`}
+      />
+      <span className="task-text">{task.text}</span>
+      <button
+        type="button"
+        className="task-delete-btn"
+        onClick={() => handleDeleteTask(task.id)}
+        disabled={pendingTaskId === task.id}
+        aria-label={`Delete ${task.text}`}
+      >
+        ✕
+      </button>
+    </div>
+  );
 
   return (
     <div className="panel tasks-panel">
@@ -60,98 +87,44 @@ function TasksPanel() {
       )}
 
       <div className="panel-content">
-        {workflowStatus?.missing ? (
-          <div className="workflows-empty">
-            <strong>Workflow tasks not loaded.</strong>
-            <span>Run {WORKFLOWS_GENERATE_COMMAND}.</span>
+        {tasks.length === 0 ? (
+          <div className="empty-message">
+            No tasks yet
           </div>
         ) : (
-          <div className="workflows-task-list">
-            {workflowTasks.map((task) => (
-              <div key={task.id} className={`task-item workflows-task-row ${task.done ? 'completed' : ''}`}>
-                <span className="workflows-task-box">{task.done ? '✓' : ''}</span>
-                <span className="task-text">{task.label}</span>
-              </div>
-            ))}
-          </div>
+          <>
+            {activeTasks.map(renderTask)}
+
+            {completedTasks.length > 0 && (
+              <>
+                <div className="task-section-label">Completed</div>
+                {completedTasks.map(renderTask)}
+              </>
+            )}
+          </>
         )}
       </div>
 
       <div className="panel-footer">
-        <details className="manual-overrides">
-          <summary>Manual task overrides</summary>
-          {tasks.length === 0 ? (
-            <div className="empty-message small">
-              No manual tasks
-            </div>
-          ) : (
-            <>
-              {activeTasks.map((task) => (
-                <div key={task.id} className="task-item">
-                  <input
-                    type="checkbox"
-                    className="task-checkbox"
-                    checked={false}
-                    onChange={() => handleToggleTask(task.id, task.done)}
-                    disabled={isAdding}
-                  />
-                  <span className="task-text">{task.text}</span>
-                  <button
-                    className="task-delete-btn"
-                    onClick={() => handleDeleteTask(task.id)}
-                    disabled={isAdding}
-                  >
-                    ✕
-                  </button>
-                </div>
-              ))}
+        <form onSubmit={handleAddTask} className="input-group">
+          <input
+            type="text"
+            className="input-field"
+            placeholder="Add task..."
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            disabled={isAdding}
+          />
+          <button
+            type="submit"
+            className="add-btn"
+            disabled={isAdding || !newTask.trim()}
+            aria-label="Add task"
+          >
+            +
+          </button>
+        </form>
 
-              {completedTasks.length > 0 && (
-                <>
-                  <div style={{ marginTop: '1rem', marginBottom: '0.5rem', color: '#999', fontSize: '1rem' }}>
-                    Completed
-                  </div>
-                  {completedTasks.map((task) => (
-                    <div key={task.id} className="task-item completed">
-                      <input
-                        type="checkbox"
-                        className="task-checkbox"
-                        checked={true}
-                        onChange={() => handleToggleTask(task.id, task.done)}
-                        disabled={isAdding}
-                      />
-                      <span className="task-text">{task.text}</span>
-                      <button
-                        className="task-delete-btn"
-                        onClick={() => handleDeleteTask(task.id)}
-                        disabled={isAdding}
-                      >
-                        ✕
-                      </button>
-                    </div>
-                  ))}
-                </>
-              )}
-            </>
-          )}
-          <form onSubmit={handleAddTask} className="input-group">
-            <input
-              type="text"
-              className="input-field"
-              placeholder="Add task..."
-              value={newTask}
-              onChange={(e) => setNewTask(e.target.value)}
-              disabled={isAdding}
-            />
-            <button
-              type="submit"
-              className="add-btn"
-              disabled={isAdding || !newTask.trim()}
-            >
-              +
-            </button>
-          </form>
-        </details>
       </div>
     </div>
   );

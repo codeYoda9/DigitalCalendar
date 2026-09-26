@@ -6,7 +6,6 @@ Build a self-hosted household dashboard for a fridge-mounted 15-inch portrait to
 Phase 1 scope only:
 - Tasks: simple shared todo list.
 - Grocery: simple shared shopping list.
-- Meals: manual weekly meal plan text.
 - UI: static household dashboard.
 - Sync: polling only.
 - No OCR.
@@ -57,7 +56,7 @@ Interaction rules:
 - Large text.
 - Common actions should take 1–2 taps.
 - UI must be readable from about 8 feet away.
-- Avoid clutter beyond the household workflow panels.
+- Avoid clutter beyond the household dashboard panels.
 
 Backend requirements:
 Create REST API endpoints for:
@@ -73,10 +72,6 @@ Groceries:
 - POST /api/groceries
 - PATCH /api/groceries/{id}
 - DELETE /api/groceries/{id}
-
-Meals:
-- GET /api/meals/week
-- PUT /api/meals/week
 
 Database requirements:
 Use PostgreSQL tables:
@@ -147,7 +142,6 @@ Code quality:
 - Add basic validation.
 - Add basic error handling.
 - Do not add unnecessary frameworks.
-- Do not build Workflows features.
 
 Deliverables:
 - Working Docker Compose project.
