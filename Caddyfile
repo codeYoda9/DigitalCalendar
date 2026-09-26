@@ -1,0 +1,11 @@
+:80 {
+    reverse_proxy homepage:3000
+}
+
+# Jellyfin reverse proxy example - replace with your domain and enable TLS
+# Example:
+# jellyfin.example.com {
+#     reverse_proxy jellyfin:8096
+# }
+
+# If you don't have a domain yet, you can temporarily access the Compose Jellyfin via host port 8097.

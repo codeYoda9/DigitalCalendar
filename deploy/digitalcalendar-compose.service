@@ -1,0 +1,17 @@
+[Unit]
+Description=Digital Calendar Docker Compose stack
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+PartOf=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/shreyasshivalkar/Projects/DigitalCalendar
+ExecStartPre=/usr/bin/docker compose config --quiet
+ExecStart=/usr/bin/docker compose up -d --remove-orphans
+RemainAfterExit=yes
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
